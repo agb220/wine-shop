@@ -1,0 +1,50 @@
+.sort {
+  min-width: 200px;
+}
+
+.sort-block {
+  display: flex;
+  position: relative;
+}
+
+.sort-block span {
+  color: rgb(180, 27, 27);
+  text-decoration: underline;
+}
+.sort-block span:hover {
+  color: rgb(138, 8, 8);
+}
+.sort-title {
+  margin-right: 5px;
+}
+.popup-body {
+  line-height: 180%;
+  flex-direction: column;
+  position: absolute;
+  display: block;
+  background: rgb(250, 248, 248);
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 5px 0px rgb(233, 227, 227);
+  margin-top: 10px;
+  margin-left: 70px;
+}
+.popup {
+  /* margin-bottom: 10px; */
+  margin-left: 5px;
+  color: rgb(114, 98, 98);
+  /* text-align: right; */
+}
+.popup:hover {
+  color: rgb(66, 51, 51);
+}
+
+.popup-active {
+  margin-left: 5px;
+  color: rgb(233, 92, 92);
+  text-decoration: underline;
+  /* text-align: right; */
+}
+.popup-active:hover {
+  color: rgb(224, 49, 49);
+}

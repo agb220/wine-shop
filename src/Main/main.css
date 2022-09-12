@@ -1,0 +1,22 @@
+.content-block {
+  height: 100%;
+  overflow: hidden;
+}
+.content {
+  margin: 0px 40px 40px 40px;
+}
+.main-bottom {
+}
+.admin {
+  float: right;
+  margin-right: 100px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.admin-btn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid rgb(152, 149, 149);
+  color: rgb(152, 149, 149);
+}

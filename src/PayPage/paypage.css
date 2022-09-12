@@ -1,0 +1,54 @@
+.pay-page {
+  width: 751px;
+  height: 100%;
+  /* border: 1px solid rgb(217, 205, 205); */
+  /* position: relative; */
+  margin-left: 50px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.text-center {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: rgb(79, 73, 73);
+  /* text-align: center; */
+}
+.credit-card {
+  margin-bottom: 20px;
+}
+
+.form-div {
+  width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+  box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+}
+
+.alert {
+  /* text-align: center; */
+  margin-top: 20px;
+}
+.alert-danger {
+  color: brown;
+}
+.form-control {
+  border: 1px solid #d3bbbb;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-left: 65px;
+}
+.is-valid {
+  border: 1px solid #ebc136;
+}
+.btn-pay {
+  margin-top: 8px;
+  margin-left: 65px;
+  background: rgb(98, 98, 207);
+  border: 1px solid rgb(98, 98, 207);
+  padding: 5px 92px;
+  border-radius: 5px;
+}

@@ -1,0 +1,39 @@
+.footer {
+}
+.footer-block {
+  /* margin-top: 30px; */
+}
+.footer-block__container {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  background: #c12727;
+}
+.footer-block__logo {
+}
+.logo {
+  color: #fff !important;
+}
+._footer {
+  font-weight: 500;
+  font-size: 18px;
+}
+.footer-block__menu {
+}
+.menu__items {
+  display: flex;
+}
+.menu_item {
+  margin-right: 20px;
+}
+.menu__link {
+}
+.link-media {
+}
+.footer-copy {
+  color: rgb(85, 82, 82);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px;
+}

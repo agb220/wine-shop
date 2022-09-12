@@ -1,0 +1,96 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "imageURL": "https://content.okwine.ua/files/product/2748759520300762848/85bb02c0-72dc-11ec-b401-210d5839b8e7.jpg",
+      "name": "Marieta",
+      "brand": "Albarino",
+      "kind": "white",
+      "price": 375,
+      "currency": "UAH"
+    },
+    {
+      "id": 1,
+      "imageURL": "https://content.okwine.ua/files/product/2454570999539041543/f782ce00-da6c-11eb-a9c0-f574d8c601b9.jpg",
+      "name": "Bordeaux Rose",
+      "brand": "Mouton Cadet",
+      "kind": "rose",
+      "price": 455,
+      "currency": "UAH"
+    },
+    {
+      "id": 2,
+      "imageURL": "https://content.okwine.ua/files/product/b755cf7c-4d41-4f00-b138-16b5412845ca.full_vino-gran-reserva-cabernet-sauvignon-mapu-krasnoe-suhoe-075l.jpg",
+      "name": "Gran Reserva Cabernet Sauvignon",
+      "brand": "Mapu",
+      "kind": "red",
+      "price": 495,
+      "currency": "UAH"
+    },
+    {
+      "id": 3,
+      "imageURL": "https://content.okwine.ua/files/product/2317481532782019973/9a0cb020-9f34-11ea-bc1b-737bcf33870e.jpg.jpg",
+      "name": "As Cores de Vinho Verde",
+      "brand": "Branco",
+      "kind": "white",
+      "price": 235,
+      "currency": "UAH"
+    },
+    {
+      "id": 4,
+      "imageURL": "https://content.okwine.ua/files/product/cdcd1798-7404-4214-9c7a-7c13d1fdf9f7.full_vino-rosado-sierra-de-enmedio-rozovoe-suhoe-075l.jpg",
+      "name": "Rosado",
+      "brand": "Sierra de Enmedio",
+      "kind": "rose",
+      "price": 185,
+      "currency": "UAH"
+    },
+    {
+      "id": 5,
+      "imageURL": "https://content.okwine.ua/files/product/2303090012603810935/9fed3fd0-8f9b-11ea-9e3f-39578e6be7a0.jpg.jpg",
+      "name": "Sauvignon Blanc Blush",
+      "kind": "rose",
+      "brand": "Asymmetric",
+      "price": 375,
+      "currency": "UAH"
+    },
+    {
+      "id": "SwSCo",
+      "imageURL": "https://content.okwine.ua/files/product/2309623600883173056/80761480-96c4-11ea-aec3-37307f74538c.jpg.jpg",
+      "name": "Concerto di Fonterutoli",
+      "kind": "red",
+      "brand": "Mazzei",
+      "price": 2995,
+      "currency": "UAH"
+    },
+    {
+      "id": "I8vAz",
+      "imageURL": "https://content.okwine.ua/files/product/2317523386483344911/fd840830-566b-11eb-b3ba-9f54324cf6d1.jpg.jpg",
+      "name": "Grande Escolha",
+      "kind": "white",
+      "brand": "Vinho Verde",
+      "price": 275,
+      "currency": "UAH"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "address": "Kyiv",
+      "email": "annabalabon@ukr.net",
+      "password": "123",
+      "name": "Anna",
+      "phone": "+380669494598",
+      "surname": "Балабон"
+    },
+    {
+      "id": 2,
+      "address": "Kharkiv",
+      "email": "njnesterov@gmail.com",
+      "password": "1234",
+      "name": "Nick",
+      "phone": "+380634483295",
+      "surname": "Nesterov"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+.header {
+  background-color: #c12727;
+  /* opacity: 0.7; */
+  margin-bottom: 20px;
+}
+.header-block {
+  display: flex;
+  justify-content: space-between;
+  min-height: 104px;
+  align-items: center;
+}
+.header-block__logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 36px;
+  margin-left: 20px;
+}
+.logo {
+  text-transform: uppercase;
+}

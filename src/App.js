@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchProducts } from "./redux/actions/products";
+
+import Header from "./Header/Header";
+import Main from "./Main/Main";
+import CartPage from "./Cart/CartPage";
+import AdminPage from "./Admin/AdminPage";
+import RegistrationPage from "./RegistrationPage/RegistrationPage";
+import LoginPage from "./RegistrationPage/LoginPage";
+import CreditCardForm from "./PayPage/CreditCardForm";
+import Footer from "./Footer/Footer";
+
+import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
+  dispatch(fetchProducts());
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <div className="_container">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} exact />
+          <Route path="/cartpage" element={<CartPage />} exact />
+          <Route path="/adminpage" element={<AdminPage />} exact />
+          <Route
+            path="/registrationpage"
+            element={<RegistrationPage />}
+            exact
+          />
+          <Route path="/loginpage" element={<LoginPage />} exact />
+          <Route path="/creditcardform" element={<CreditCardForm />} exact />
+        </Routes>
+        <Footer />
+      </div>
     </div>
   );
 }
