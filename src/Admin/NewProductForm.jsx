@@ -29,7 +29,14 @@ function AddProductForm() {
   const [currencyError, setCurrencyError] = useState("Please, enter currency");
 
   useEffect(() => {
-    if (imageURLError) {
+    if (
+      (imageURLError,
+      nameError,
+      brandError,
+      kindError,
+      priceError,
+      currencyError)
+    ) {
       setFormValid(false);
     } else {
       setFormValid(true);

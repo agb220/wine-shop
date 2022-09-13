@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import validateInfo from "./validateInfo";
+//import validateInfo from "./validateInfo";
 
 function useForm() {
   const [values, setValues] = useState({

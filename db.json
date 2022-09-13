@@ -71,6 +71,15 @@
       "brand": "Vinho Verde",
       "price": 275,
       "currency": "UAH"
+    },
+    {
+      "id": "8XOas",
+      "imageURL": "https://content.okwine.ua/files/product/a0c209c5-cfe5-485f-ae56-8df144906d4b.%D0%A4%D0%BE%D0%BD-(3)-%D0%92%D1%96%D0%B4%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BE.jpg",
+      "name": "Gran Reserva Chardonnay",
+      "kind": "white",
+      "brand": "Mapu",
+      "price": 495,
+      "currency": "UAH"
     }
   ],
   "users": [
