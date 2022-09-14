@@ -87,9 +87,13 @@
   left: 0;
   font-size: 24px;
 }
+.expiry-block {
+  border: 1px soli #000;
+  height: 100px;
+}
 .card-expiry {
   position: absolute;
-  width: 150px;
+  width: 100px;
   text-align: center;
   background: #f1f1f1;
   padding: 5px;
@@ -98,6 +102,22 @@
   bottom: 40px;
   left: 5%;
   font-size: 24px;
+}
+._year {
+  left: 30%;
+}
+.expiry-line {
+  position: absolute;
+  width: 20px;
+  text-align: center;
+  background: #f1f1f1;
+  padding: 12px 5px;
+  border: none;
+  outline: none;
+  bottom: 40px;
+  left: 25%;
+  font-size: 36px;
+  margin-top: -25px;
 }
 .btn-pay {
   background: #cecece;
@@ -131,6 +151,16 @@
   position: absolute;
   left: 25px;
   bottom: 147px;
+  width: 200px;
+  padding: 5px 0;
+  font-size: 12px;
+  color: red;
+  margin-bottom: 5px;
+}
+.errorExpiry {
+  position: absolute;
+  left: 25px;
+  bottom: 78px;
   width: 200px;
   padding: 5px 0;
   font-size: 12px;
