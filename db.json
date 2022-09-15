@@ -101,5 +101,21 @@
       "phone": "+380634483295",
       "surname": "Nesterov"
     }
+  ],
+  "cards": [
+    {
+      "id": "gspSX",
+      "number": "4567890123567891",
+      "name": "Anna Bal",
+      "cvc": "577",
+      "expiry": "03/24"
+    },
+    {
+      "id": "ywMFT",
+      "number": "4567890123567892",
+      "name": "Anna Bal",
+      "cvc": "577",
+      "expiry": "03/24"
+    }
   ]
 }

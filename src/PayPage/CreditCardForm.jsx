@@ -56,6 +56,7 @@ function CreditCardForm() {
           id,
           number,
           name,
+          cvc,
           expiry,
         })
       );
@@ -126,9 +127,9 @@ function CreditCardForm() {
   const expiryHandler = (e) => {
     setExpiry(e.target.value);
     const regex = /(\d{2})\/(\d{2})/;
-    let dateNow = new Date();
-    let month = +dateNow.getMonth() + 1;
-    console.log("month", month);
+    // let dateNow = new Date();
+    // let month = +dateNow.getMonth() + 1;
+    // console.log("month", month);
 
     if (!regex.test(String(e.target.value))) {
       setExpiryError("Please check the card expiry");
@@ -140,82 +141,87 @@ function CreditCardForm() {
   return (
     <div className="pay-page">
       <h1 className="text-center"> Please enter your credit card</h1>
-      <form className="card-wrapper" onSubmit={formHandler}>
-        <div className="card-back">
-          <div className="card-back-line"> </div>
-          {cvcDirty && cvcError && <div className="errorCvc">{cvcError} </div>}
-          <label htmlFor="cvc"> </label>
-          <input
-            className="card-cvc"
-            type="text"
-            id="cvc"
-            name="cvc"
-            placeholder="CVC"
-            maxLength={3}
-            value={cvc}
-            onChange={(e) => cvcHandler(e)}
-            onBlur={(e) => blurHandler(e)}
-          ></input>
-        </div>
-        <div className="card-front">
-          <p className="card-bank">Card of Bank</p>
-          <p className="card-logo">Logo</p>
-          {nameDirty && nameError && (
-            <div className="errorName">{nameError} </div>
-          )}
-          <label htmlFor="name"> </label>
-          <input
-            className="card-name"
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => nameHandler(e)}
-            onBlur={(e) => blurHandler(e)}
-          ></input>
-          {numberDirty && numberError && (
-            <div className="errorNumber">{numberError} </div>
-          )}
-          <label htmlFor="number"> </label>
-          <input
-            className="card-number"
-            type="text"
-            id="number"
-            name="number"
-            maxLength={16}
-            placeholder="Number"
-            onChange={(e) => numberHandler(e)}
-            onBlur={(e) => blurHandler(e)}
-            value={number}
-          ></input>
-          <div className="expiry-block">
-            {expiryDirty && expiryError && (
-              <div className="errorExpiry">{expiryError} </div>
+      <form className="card" onSubmit={formHandler}>
+        <div className="card-wrapper">
+          <div className="card-back">
+            <div className="card-back-line"> </div>
+            {cvcDirty && cvcError && (
+              <div className="errorCvc">{cvcError} </div>
             )}
-            <label htmlFor="expiry"> </label>
+            <label htmlFor="cvc"> </label>
             <input
-              className="card-expiry"
+              className="card-cvc"
               type="text"
-              id="expiry"
-              name="expiry"
-              maxLength={5}
-              placeholder="MM/YY"
-              onChange={(e) => expiryHandler(e)}
+              id="cvc"
+              name="cvc"
+              placeholder="CVC"
+              maxLength={3}
+              value={cvc}
+              onChange={(e) => cvcHandler(e)}
               onBlur={(e) => blurHandler(e)}
             ></input>
           </div>
+          <div className="card-front">
+            <p className="card-bank">Card of Bank</p>
+            <p className="card-logo">Logo</p>
+            {nameDirty && nameError && (
+              <div className="errorName">{nameError} </div>
+            )}
+            <label htmlFor="name"> </label>
+            <input
+              className="card-name"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => nameHandler(e)}
+              onBlur={(e) => blurHandler(e)}
+            ></input>
+            {numberDirty && numberError && (
+              <div className="errorNumber">{numberError} </div>
+            )}
+            <label htmlFor="number"> </label>
+            <input
+              className="card-number"
+              type="text"
+              id="number"
+              name="number"
+              maxLength={16}
+              placeholder="Number"
+              onChange={(e) => numberHandler(e)}
+              onBlur={(e) => blurHandler(e)}
+              value={number}
+            ></input>
+            <div className="expiry-block">
+              {expiryDirty && expiryError && (
+                <div className="errorExpiry">{expiryError} </div>
+              )}
+              <label htmlFor="expiry"> </label>
+              <input
+                className="card-expiry"
+                type="text"
+                id="expiry"
+                name="expiry"
+                maxLength={5}
+                placeholder="MM/YY"
+                onChange={(e) => expiryHandler(e)}
+                onBlur={(e) => blurHandler(e)}
+              ></input>
+            </div>
+          </div>
         </div>
+
+        <button
+          className="btn-pay"
+          size="block"
+          id="validateButton"
+          type="submit"
+          disabled={!isValid}
+        >
+          Pay
+        </button>
       </form>
-      <button
-        className="btn-pay"
-        size="block"
-        id="validateButton"
-        type="submit"
-        disabled={!isValid}
-      >
-        Pay
-      </button>
     </div>
   );
 }

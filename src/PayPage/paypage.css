@@ -8,7 +8,9 @@
   font-size: 24px;
   margin-left: 250px;
 }
-.left {
+.card {
+  height: 600px;
+  position: relative;
 }
 .card-wrapper {
   width: 751px;
@@ -103,29 +105,16 @@
   left: 5%;
   font-size: 24px;
 }
-._year {
-  left: 30%;
-}
-.expiry-line {
-  position: absolute;
-  width: 20px;
-  text-align: center;
-  background: #f1f1f1;
-  padding: 12px 5px;
-  border: none;
-  outline: none;
-  bottom: 40px;
-  left: 25%;
-  font-size: 36px;
-  margin-top: -25px;
-}
+
 .btn-pay {
+  position: absolute;
   background: #cecece;
   border: 1px solid #cecece;
   padding: 15px 100px;
   border-radius: 5px;
   margin-left: 250px;
   font-size: 20px;
+  bottom: 90px;
 }
 .errorCvc {
   position: absolute;
