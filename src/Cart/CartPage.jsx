@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import CartPayBTN from "./CartPayBTN";
 import CartPageDelivery from "./CartPageDelivery";
-import RegistrationBTN from "../RegistrationPage/RegistrationBTN";
 import {
   clearCart,
   removeCartItem,
@@ -60,7 +59,6 @@ function CartPage() {
         {totalCount ? (
           <div className="container-cart__cart">
             <div className="container-cart__registration">
-              <RegistrationBTN />
               <div className="container-cart__checkbox">
                 <label htmlFor="checkbox">
                   <span>I want buy without registration</span>

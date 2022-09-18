@@ -84,22 +84,22 @@
   ],
   "users": [
     {
-      "id": 1,
-      "address": "Kyiv",
-      "email": "annabalabon@ukr.net",
-      "password": "123",
-      "name": "Anna",
-      "phone": "+380669494598",
-      "surname": "Балабон"
+      "id": "ggnSz",
+      "userName": "Anna",
+      "userSurname": "But",
+      "userPhoneNumber": "+380669494588",
+      "userEmail": "test@test.ua",
+      "userPassword": "123",
+      "userAddress": "Kherson"
     },
     {
-      "id": 2,
-      "address": "Kharkiv",
-      "email": "njnesterov@gmail.com",
-      "password": "1234",
-      "name": "Nick",
-      "phone": "+380634483295",
-      "surname": "Nesterov"
+      "id": "Frjav",
+      "userName": "Andre",
+      "userSurname": "Corb",
+      "userPhoneNumber": "+380669464855",
+      "userEmail": "andre@test.ua",
+      "userPassword": "1234",
+      "userAddress": "Mariupol"
     }
   ],
   "cards": [
@@ -116,6 +116,27 @@
       "name": "Anna Bal",
       "cvc": "577",
       "expiry": "03/24"
+    },
+    {
+      "id": "6PqNI",
+      "number": "4567890123567868",
+      "name": "Andre Corb",
+      "cvc": "577",
+      "expiry": "04/25"
+    },
+    {
+      "id": "vUQok",
+      "number": "4567890123567858",
+      "name": "Misha",
+      "cvc": "577",
+      "expiry": "03/24"
+    },
+    {
+      "id": "7ysbl",
+      "number": "4567890123567890",
+      "name": "Nikolas",
+      "cvc": "677",
+      "expiry": "03/25"
     }
   ]
 }

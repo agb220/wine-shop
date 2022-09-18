@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./RegistrationPage.css";
 
 function RegistrationBTN() {
   return (
     <div className="registration-btn">
-      <a href="/registrationpage">
-        <button className="btn-outline">Registration / Login</button>
-      </a>
+      <Link to="/registrationpage">
+        <button className="btn-reg">Registration / Login</button>
+      </Link>
     </div>
   );
 }

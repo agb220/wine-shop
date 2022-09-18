@@ -2,19 +2,34 @@
   margin-right: 10px;
   font-size: 16px;
 }
-.btn-outline {
-  border: 1px solid rgb(56, 47, 47);
-  background: #fff;
-  padding: 20px 15px;
+.btn-reg {
+  border: 1px solid rgb(243, 237, 237);
+  background: #c12727;
+  color: #fff;
+  padding: 10px 15px;
   border-radius: 8px;
+  margin-right: 10px;
+}
+.btn-reg:hover {
+  border: 2px solid rgb(184, 172, 172);
+  background: #f42121;
+  color: #fff;
 }
 .registration {
   margin-left: 50px;
+  margin-bottom: 30px;
+}
+.registration h2 {
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 .form-checkbox {
   margin-bottom: 10px;
 }
+.form-checkbox span {
+}
 .form-items {
+  margin-left: 50px;
 }
 .form-item {
   max-width: 350px;
@@ -28,6 +43,13 @@
   color: rgb(48, 41, 41);
   margin-bottom: 50px;
 }
+
+.btn-form:hover {
+  border: 1px solid rgb(27, 20, 20);
+  background: rgb(181, 175, 175);
+  color: #fff;
+}
+
 .form-errors {
   color: rgb(182, 14, 14);
   border: none;

@@ -5,7 +5,7 @@
 }
 .header-block {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   min-height: 104px;
   align-items: center;
 }
@@ -14,7 +14,13 @@
   font-weight: 700;
   font-size: 36px;
   margin-left: 20px;
+  margin-right: 1260px;
 }
 .logo {
   text-transform: uppercase;
+}
+.header-block__info {
+  display: flex;
+  justify-content: center;
+  background: #c12727;
 }

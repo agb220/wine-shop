@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import CartBtn from "../Cart/CartBtn";
+import RegistrationBTN from "../RegistrationPage/RegistrationBTN";
 
 import "./header.css";
 
@@ -12,7 +13,10 @@ function Header() {
         <Link to={"/"}>
           <div className="header-block__logo">WINE SHOP</div>
         </Link>
-        <CartBtn />
+        <div className="header-block__info">
+          <RegistrationBTN />
+          <CartBtn />
+        </div>
       </header>
     </div>
   );
