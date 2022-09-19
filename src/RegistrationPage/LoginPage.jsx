@@ -4,11 +4,15 @@ import "./RegistrationPage.css";
 
 function LoginPage() {
   const [userEmail, setUserEmail] = useState("");
-  const [userEmailError, setUserEmailError] = useState("");
-  const [userEmailDirty, setUserEmailDirty] = useState("");
+  const [userEmailError, setUserEmailError] = useState(
+    "The field must not be empty"
+  );
+  const [userEmailDirty, setUserEmailDirty] = useState(false);
   const [userPassword, setUserPassword] = useState("");
-  const [userPasswordError, setUserPasswordError] = useState("");
-  const [userPasswordDirty, setUserPasswordDirty] = useState("");
+  const [userPasswordError, setUserPasswordError] = useState(
+    "The field must not be empty"
+  );
+  const [userPasswordDirty, setUserPasswordDirty] = useState(false);
   const [valid, setValid] = useState(false);
 
   useEffect(() => {
@@ -32,7 +36,7 @@ function LoginPage() {
       if (data[0].userPassword === userPassword) {
         alert(`Hello ${data[0].userName}!!!`);
       } else {
-        alert(`Hello bad boy!`);
+        alert(`Invalid email or password`);
       }
     });
   };
@@ -79,31 +83,31 @@ function LoginPage() {
       <div>
         <h2>Login</h2>
         <div className="form">
-          <form className="form-items">
+          <form className="form-items" onSubmit={loginHandler}>
+            {userEmailDirty && userEmailError && (
+              <p className="form-errors">{userEmailError}</p>
+            )}
             <div className="form-item">
-              {userEmailDirty && userEmailError && (
-                <p className="form-errors">{userEmailError}</p>
-              )}
-              <label htmlFor="email"> </label>
+              <label htmlFor="userEmail"> </label>
               <input
                 className="input"
                 type="email"
-                name="email"
+                name="userEmail"
                 onChange={(e) => userEmailHandler(e)}
                 onBlur={(e) => blurHandler(e)}
                 value={userEmail}
                 placeholder="Email"
               />
             </div>
+            {userPasswordDirty && userPasswordError && (
+              <p className="form-errors">{userPasswordError}</p>
+            )}
             <div className="form-item">
-              {userPasswordDirty && userPasswordError && (
-                <p className="form-errors">{userPasswordError}</p>
-              )}
-              <label htmlFor="password"> </label>
+              <label htmlFor="userPassword"> </label>
               <input
                 className="input"
                 type="password"
-                name="password"
+                name="userPassword"
                 onChange={(e) => userPasswordHandler(e)}
                 onBlur={(e) => blurHandler(e)}
                 value={userPassword}
@@ -113,9 +117,8 @@ function LoginPage() {
             <button
               className="btn-form"
               id="btn"
-              // disabled={!valid}
+              disabled={!valid}
               type="submit"
-              onClick={loginHandler}
             >
               Login
             </button>

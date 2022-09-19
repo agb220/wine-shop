@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import CartItem from "./CartItem";
-import CartPayBTN from "./CartPayBTN";
-import CartPageDelivery from "./CartPageDelivery";
+import CreditCardForm from "../PayPage/CreditCardForm";
 import {
   clearCart,
   removeCartItem,
@@ -20,7 +19,7 @@ import smile from "../assign/cart-page/face.svg";
 function CartPage() {
   const dispatch = useDispatch();
   const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
-  const [agree, setAgree] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
 
   //console.log("items", items);
 
@@ -45,34 +44,18 @@ function CartPage() {
     dispatch(minusCartItem(id));
   };
 
-  const handleChange = () => {
-    if (agree === true) {
-      setAgree(true);
-    }
-    setAgree(!agree);
-  };
-  //console.log("setAgree", agree);
+  // const handleChange = () => {
+  //   if (active === true) {
+  //     setActive(true);
+  //   }
+  //   setActive(!active);
+  // };
 
   return (
     <div className="content">
       <div className="container-cart _container">
         {totalCount ? (
           <div className="container-cart__cart">
-            <div className="container-cart__registration">
-              <div className="container-cart__checkbox">
-                <label htmlFor="checkbox">
-                  <span>I want buy without registration</span>
-                </label>
-                <input
-                  className="btn-checkbox"
-                  onChange={() => handleChange("agree")}
-                  checked={agree}
-                  id="checkbox"
-                  name="checkbox"
-                  type="checkbox"
-                ></input>
-              </div>
-            </div>
             <div className="cart-block">
               <div className="cart-content">
                 <div className="cart">
@@ -124,11 +107,21 @@ function CartPage() {
                     <img src={arrow} alt="arrow" />
                     <span>Go back</span>
                   </Link>
-                  <CartPayBTN />
+                  <div className="cart-btn">
+                    <button
+                      className="cart-btn__pay"
+                      onClick={() => setModalActive(true)}
+                    >
+                      Pay Now
+                    </button>
+                  </div>
                 </div>
               </div>
               <div className="container-cart__delivery">
-                {agree === true ? <CartPageDelivery /> : <></>}
+                <CreditCardForm
+                  active={modalActive}
+                  setActive={setModalActive}
+                />
               </div>
             </div>
           </div>

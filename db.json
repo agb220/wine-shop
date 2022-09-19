@@ -89,7 +89,7 @@
       "userSurname": "But",
       "userPhoneNumber": "+380669494588",
       "userEmail": "test@test.ua",
-      "userPassword": "123",
+      "userPassword": "Asd123/",
       "userAddress": "Kherson"
     },
     {
@@ -98,7 +98,7 @@
       "userSurname": "Corb",
       "userPhoneNumber": "+380669464855",
       "userEmail": "andre@test.ua",
-      "userPassword": "1234",
+      "userPassword": "Bng345!",
       "userAddress": "Mariupol"
     }
   ],
@@ -137,6 +137,13 @@
       "name": "Nikolas",
       "cvc": "677",
       "expiry": "03/25"
+    },
+    {
+      "id": "YMpyd",
+      "number": "4567890123567899",
+      "name": "Jully",
+      "cvc": "377",
+      "expiry": "12/24"
     }
   ]
 }

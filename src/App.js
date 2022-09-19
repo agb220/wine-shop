@@ -9,7 +9,6 @@ import CartPage from "./Cart/CartPage";
 import AdminPage from "./Admin/AdminPage";
 import RegistrationPage from "./RegistrationPage/RegistrationPage";
 import LoginPage from "./RegistrationPage/LoginPage";
-import CreditCardForm from "./PayPage/CreditCardForm";
 import Footer from "./Footer/Footer";
 
 import "./App.css";
@@ -31,7 +30,6 @@ function App() {
             exact
           />
           <Route path="/loginpage" element={<LoginPage />} exact />
-          <Route path="/creditcardform" element={<CreditCardForm />} exact />
         </Routes>
         <Footer />
       </div>

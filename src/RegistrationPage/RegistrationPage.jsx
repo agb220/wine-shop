@@ -11,29 +11,47 @@ import "./RegistrationPage.css";
 function RegistrationPage() {
   const dispatch = useDispatch();
   const [userName, setUserName] = useState("");
-  const [userNameError, setUserNameError] = useState("");
-  const [userNameDirty, setUserNameDirty] = useState("");
+  const [userNameError, setUserNameError] = useState(
+    "The field must not be empty"
+  );
+  const [userNameDirty, setUserNameDirty] = useState(false);
   const [userSurname, setUserSurname] = useState("");
-  const [userSurnameError, setUserSurnameError] = useState("");
-  const [userSurnameDirty, setUserSurnameDirty] = useState("");
+  const [userSurnameError, setUserSurnameError] = useState(
+    "The field must not be empty"
+  );
+  const [userSurnameDirty, setUserSurnameDirty] = useState(false);
   const [userPhoneNumber, setUserPhoneNumber] = useState("");
-  const [userPhoneNumberError, setUserPhoneNumberError] = useState("");
-  const [userPhoneNumberDirty, setUserPhoneNumberDirty] = useState("");
+  const [userPhoneNumberError, setUserPhoneNumberError] = useState(
+    "The field must not be empty"
+  );
+  const [userPhoneNumberDirty, setUserPhoneNumberDirty] = useState(false);
   const [userEmail, setUserEmail] = useState("");
-  const [userEmailError, setUserEmailError] = useState("");
-  const [userEmailDirty, setUserEmailDirty] = useState("");
+  const [userEmailError, setUserEmailError] = useState(
+    "The field must not be empty"
+  );
+  const [userEmailDirty, setUserEmailDirty] = useState(false);
   const [userEmailConfirm, setUserEmailConfirm] = useState("");
-  const [userEmailConfirmError, setUserEmailConfirmError] = useState("");
-  const [userEmailConfirmDirty, setUserEmailConfirmDirty] = useState("");
+  const [userEmailConfirmError, setUserEmailConfirmError] = useState(
+    "The field must not be empty"
+  );
+  const [userEmailConfirmDirty, setUserEmailConfirmDirty] = useState(false);
   const [userPassword, setUserPassword] = useState("");
-  const [userPasswordError, setUserPasswordError] = useState("");
-  const [userPasswordDirty, setUserPasswordDirty] = useState("");
+  const [userPasswordError, setUserPasswordError] = useState(
+    "The field must not be empty"
+  );
+  const [userPasswordDirty, setUserPasswordDirty] = useState(false);
   const [userPasswordConfirm, setUserPasswordConfirm] = useState("");
-  const [userPasswordConfirmError, setUserPasswordConfirmError] = useState("");
-  const [userPasswordConfirmDirty, setUserPasswordConfirmDirty] = useState("");
+  const [userPasswordConfirmError, setUserPasswordConfirmError] = useState(
+    "The field must not be empty"
+  );
+  const [userPasswordConfirmDirty, setUserPasswordConfirmDirty] = useState(
+    false
+  );
   const [userAddress, setUserAddress] = useState("");
-  const [userAddressError, setUserAddressError] = useState("");
-  const [userAddressDirty, setUserAddressDirty] = useState("");
+  const [userAddressError, setUserAddressError] = useState(
+    "The field must not be empty"
+  );
+  const [userAddressDirty, setUserAddressDirty] = useState(false);
   const [valid, setValid] = useState(false);
   const [agree, setAgree] = useState(false);
 
@@ -162,7 +180,6 @@ function RegistrationPage() {
     } else {
       setUserNameError("");
     }
-    console.log("name", e.target.value);
   };
   const userSurnameHandler = (e) => {
     setUserSurname(e.target.value);
@@ -178,7 +195,6 @@ function RegistrationPage() {
     } else {
       setUserSurnameError("");
     }
-    console.log("surname", e.target.value);
   };
 
   const userPhoneNumberHandler = (e) => {
@@ -189,7 +205,6 @@ function RegistrationPage() {
     } else {
       setUserPhoneNumberError("");
     }
-    console.log("phoneNumber", e.target.value);
   };
 
   const userEmailHandler = (e) => {
@@ -200,7 +215,6 @@ function RegistrationPage() {
     } else {
       setUserEmailError("");
     }
-    console.log("email", e.target.value);
   };
 
   const userEmailConfirmHandler = (e) => {
@@ -211,7 +225,6 @@ function RegistrationPage() {
     } else {
       setUserEmailConfirmError("");
     }
-    console.log("emailConfirm", e.target.value);
   };
 
   const userPasswordHandler = (e) => {
@@ -222,7 +235,6 @@ function RegistrationPage() {
     } else {
       setUserPasswordError("");
     }
-    console.log("password", e.target.value, regex.test(e.target.value));
   };
 
   const userPasswordConfirmHandler = (e) => {
@@ -233,7 +245,6 @@ function RegistrationPage() {
     } else {
       setUserPasswordConfirmError("");
     }
-    console.log("passwordConfirm", e.target.value);
   };
 
   const userAddressHandler = (e) => {
@@ -250,7 +261,6 @@ function RegistrationPage() {
     } else {
       setUserAddressError("");
     }
-    console.log("address", e.target.value);
   };
 
   return (
@@ -274,10 +284,10 @@ function RegistrationPage() {
           </div>
           {agree === true ? (
             <form className="form-items" onSubmit={registrationHandler}>
+              {userNameDirty && userNameError && (
+                <p className="form-errors">{userNameError}</p>
+              )}
               <div className="form-item">
-                {userNameDirty && userNameError && (
-                  <p className="form-errors">{userNameError}</p>
-                )}
                 <label htmlFor="userName"> </label>
                 <input
                   className="input"
@@ -289,10 +299,10 @@ function RegistrationPage() {
                   placeholder="Name"
                 />
               </div>
+              {userSurnameDirty && userSurnameError && (
+                <p className={"form-errors"}>{userSurnameError}</p>
+              )}
               <div className="form-item">
-                {userSurnameDirty && userSurnameError && (
-                  <p className={"form-errors"}>{userSurnameError}</p>
-                )}
                 <label htmlFor="userSurname"> </label>
                 <input
                   className="input"
@@ -304,10 +314,10 @@ function RegistrationPage() {
                   placeholder="Surname"
                 />
               </div>
+              {userPhoneNumberDirty && userPhoneNumberError && (
+                <p className="form-errors">{userPhoneNumberError}</p>
+              )}
               <div className="form-item">
-                {userPhoneNumberDirty && userPhoneNumberError && (
-                  <p className="form-errors">{userPhoneNumberError}</p>
-                )}
                 <label htmlFor="userPhoneNumber"> </label>
                 <input
                   className="input"
@@ -319,10 +329,10 @@ function RegistrationPage() {
                   placeholder="Phone number"
                 />
               </div>
+              {userEmailDirty && userEmailError && (
+                <p className="form-errors">{userEmailError}</p>
+              )}
               <div className="form-item">
-                {userEmailDirty && userEmailError && (
-                  <p className="form-errors">{userEmailError}</p>
-                )}
                 <label htmlFor="userEmail"> </label>
                 <input
                   className={"input"}
@@ -334,10 +344,10 @@ function RegistrationPage() {
                   placeholder="Email"
                 />
               </div>
+              {userEmailConfirmDirty && userEmailConfirmError && (
+                <p className="form-errors">{userEmailConfirmError}</p>
+              )}
               <div className="form-item">
-                {userEmailConfirmDirty && userEmailConfirmError && (
-                  <p className="form-errors">{userEmailConfirmError}</p>
-                )}
                 <label htmlFor="userEmailConfirm"> </label>
                 <input
                   className="input"
@@ -349,10 +359,10 @@ function RegistrationPage() {
                   placeholder="Confirm email"
                 />
               </div>
+              {userPasswordDirty && userPasswordError && (
+                <p className="form-errors">{userPasswordError}</p>
+              )}
               <div className="form-item">
-                {userPasswordError && (
-                  <p className="form-errors">{userPasswordError}</p>
-                )}
                 <label htmlFor="userPassword"> </label>
                 <input
                   className="input"
@@ -364,10 +374,10 @@ function RegistrationPage() {
                   placeholder="Password"
                 />
               </div>
+              {userPasswordConfirmDirty && userPasswordConfirmError && (
+                <p className="form-errors">{userPasswordConfirmError}</p>
+              )}
               <div className="form-item">
-                {userPasswordConfirmDirty && userPasswordConfirmError && (
-                  <p className="form-errors">{userPasswordConfirmError}</p>
-                )}
                 <label htmlFor="userPasswordConfirm"> </label>
                 <input
                   className="input"
@@ -379,10 +389,10 @@ function RegistrationPage() {
                   placeholder="Confirm password"
                 />
               </div>
+              {userAddressDirty && userAddressError && (
+                <p className="form-errors">{userAddressError}</p>
+              )}
               <div className="form-item">
-                {userAddressDirty && userAddressError && (
-                  <p className="form-errors">{userAddressError}</p>
-                )}
                 <label htmlFor="userAddress"> </label>
                 <input
                   className="input"

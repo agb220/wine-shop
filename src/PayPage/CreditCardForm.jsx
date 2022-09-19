@@ -6,20 +6,20 @@ import { useDispatch } from "react-redux";
 import { payCard } from "../redux/actions/products";
 import "./paypage.css";
 
-function CreditCardForm() {
+function CreditCardForm({ active, setActive }) {
   const dispatch = useDispatch();
   const [number, setNumber] = useState("");
-  const [numberError, setNumberError] = useState("");
-  const [numberDirty, setNumberDirty] = useState("");
+  const [numberError, setNumberError] = useState("The field must not be empty");
+  const [numberDirty, setNumberDirty] = useState(false);
   const [name, setName] = useState("");
-  const [nameDirty, setNameDirty] = useState("");
-  const [nameError, setNameError] = useState("");
+  const [nameDirty, setNameDirty] = useState(false);
+  const [nameError, setNameError] = useState("The field must not be empty");
   const [expiry, setExpiry] = useState("");
-  const [expiryDirty, setExpiryDirty] = useState("");
-  const [expiryError, setExpiryError] = useState("");
+  const [expiryDirty, setExpiryDirty] = useState(false);
+  const [expiryError, setExpiryError] = useState("The field must not be empty");
   const [cvc, setCvc] = useState("");
-  const [cvcError, setCvcError] = useState("");
-  const [cvcDirty, setCvcDirty] = useState("");
+  const [cvcError, setCvcError] = useState("The field must not be empty");
+  const [cvcDirty, setCvcDirty] = useState(false);
   const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
@@ -139,89 +139,98 @@ function CreditCardForm() {
   };
 
   return (
-    <div className="pay-page">
-      <h1 className="text-center"> Please enter your credit card</h1>
-      <form className="card" onSubmit={formHandler}>
-        <div className="card-wrapper">
-          <div className="card-back">
-            <div className="card-back-line"> </div>
-            {cvcDirty && cvcError && (
-              <div className="errorCvc">{cvcError} </div>
-            )}
-            <label htmlFor="cvc"> </label>
-            <input
-              className="card-cvc"
-              type="text"
-              id="cvc"
-              name="cvc"
-              placeholder="CVC"
-              maxLength={3}
-              value={cvc}
-              onChange={(e) => cvcHandler(e)}
-              onBlur={(e) => blurHandler(e)}
-            ></input>
-          </div>
-          <div className="card-front">
-            <p className="card-bank">Card of Bank</p>
-            <p className="card-logo">Logo</p>
-            {nameDirty && nameError && (
-              <div className="errorName">{nameError} </div>
-            )}
-            <label htmlFor="name"> </label>
-            <input
-              className="card-name"
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => nameHandler(e)}
-              onBlur={(e) => blurHandler(e)}
-            ></input>
-            {numberDirty && numberError && (
-              <div className="errorNumber">{numberError} </div>
-            )}
-            <label htmlFor="number"> </label>
-            <input
-              className="card-number"
-              type="text"
-              id="number"
-              name="number"
-              maxLength={16}
-              placeholder="Number"
-              onChange={(e) => numberHandler(e)}
-              onBlur={(e) => blurHandler(e)}
-              value={number}
-            ></input>
-            <div className="expiry-block">
-              {expiryDirty && expiryError && (
-                <div className="errorExpiry">{expiryError} </div>
+    <div
+      className={active ? "modal active" : "modal"}
+      onClick={() => setActive(false)}
+    >
+      <div className="pay-page" onClick={(e) => e.stopPropagation()}>
+        <h1 className="text-center"> Please enter your credit card</h1>
+        <form className="card" onSubmit={formHandler}>
+          <div className="card-wrapper">
+            <div className="card-back">
+              <div className="card-back-line"> </div>
+              {cvcDirty && cvcError && (
+                <div className="errorCvc">{cvcError} </div>
               )}
-              <label htmlFor="expiry"> </label>
+              <label htmlFor="cvc"> </label>
               <input
-                className="card-expiry"
+                className="card-cvc"
                 type="text"
-                id="expiry"
-                name="expiry"
-                maxLength={5}
-                placeholder="MM/YY"
-                onChange={(e) => expiryHandler(e)}
+                id="cvc"
+                name="cvc"
+                placeholder="CVC"
+                maxLength={3}
+                value={cvc}
+                onChange={(e) => cvcHandler(e)}
                 onBlur={(e) => blurHandler(e)}
-                value={expiry}
               ></input>
             </div>
+            <div className="card-front">
+              <p className="card-bank">Card of Bank</p>
+              <p className="card-logo">Logo</p>
+              {nameDirty && nameError && (
+                <div className="errorName">{nameError} </div>
+              )}
+              <label htmlFor="name"> </label>
+              <input
+                className="card-name"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => nameHandler(e)}
+                onBlur={(e) => blurHandler(e)}
+              ></input>
+              {numberDirty && numberError && (
+                <div className="errorNumber">{numberError} </div>
+              )}
+              <label htmlFor="number"> </label>
+              <input
+                className="card-number"
+                type="text"
+                id="number"
+                name="number"
+                maxLength={16}
+                placeholder="Number"
+                onChange={(e) => numberHandler(e)}
+                onBlur={(e) => blurHandler(e)}
+                value={number}
+              ></input>
+              <div className="expiry-block">
+                {expiryDirty && expiryError && (
+                  <div className="errorExpiry">{expiryError} </div>
+                )}
+                <label htmlFor="expiry"> </label>
+                <input
+                  className="card-expiry"
+                  type="text"
+                  id="expiry"
+                  name="expiry"
+                  maxLength={5}
+                  placeholder="MM/YY"
+                  onChange={(e) => expiryHandler(e)}
+                  onBlur={(e) => blurHandler(e)}
+                  value={expiry}
+                ></input>
+              </div>
+            </div>
           </div>
-        </div>
-        <button
-          className="btn-pay"
-          size="block"
-          id="validateButton"
-          type="submit"
-          disabled={!isValid}
-        >
-          Pay
+
+          <button
+            className="btn-pay"
+            size="block"
+            id="validateButton"
+            type="submit"
+            disabled={!isValid}
+          >
+            Pay
+          </button>
+        </form>
+        <button className="btn-inline" onClick={() => setActive(false)}>
+          Cancel payment
         </button>
-      </form>
+      </div>
     </div>
   );
 }
