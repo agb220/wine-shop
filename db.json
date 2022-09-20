@@ -100,6 +100,33 @@
       "userEmail": "andre@test.ua",
       "userPassword": "Bng345!",
       "userAddress": "Mariupol"
+    },
+    {
+      "id": "UAvo0",
+      "userName": "Alex",
+      "userSurname": "Pavlenko",
+      "userPhoneNumber": "+380975960894",
+      "userEmail": "pav@test.ua",
+      "userPassword": "Qwe123/",
+      "userAddress": "Kakhovka"
+    },
+    {
+      "id": "qgaGn",
+      "userName": "Alex",
+      "userSurname": "Pavlenko",
+      "userPhoneNumber": "+380975960894",
+      "userEmail": "pav@test.ua",
+      "userPassword": "Qwe123/",
+      "userAddress": "Kakhovka"
+    },
+    {
+      "id": "sLZFB",
+      "userName": "Oleg",
+      "userSurname": "Alekseev",
+      "userPhoneNumber": "+38093445678",
+      "userEmail": "alekseev@test.ua",
+      "userPassword": "Edc345/",
+      "userAddress": "Kherson"
     }
   ],
   "cards": [

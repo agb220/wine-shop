@@ -44,13 +44,6 @@ function CartPage() {
     dispatch(minusCartItem(id));
   };
 
-  // const handleChange = () => {
-  //   if (active === true) {
-  //     setActive(true);
-  //   }
-  //   setActive(!active);
-  // };
-
   return (
     <div className="content">
       <div className="container-cart _container">

@@ -3,12 +3,12 @@ import { nanoid } from "nanoid";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 
-import LoginPage from "./LoginPage";
+//import LoginPage from "./LoginPage";
 import { registrationUser } from "../redux/actions/registration";
 
 import "./RegistrationPage.css";
 
-function RegistrationPage() {
+function RegistrationPage({ active, setActive }) {
   const dispatch = useDispatch();
   const [userName, setUserName] = useState("");
   const [userNameError, setUserNameError] = useState(
@@ -54,6 +54,7 @@ function RegistrationPage() {
   const [userAddressDirty, setUserAddressDirty] = useState(false);
   const [valid, setValid] = useState(false);
   const [agree, setAgree] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
 
   const handleChange = () => {
     if (agree === true) {
@@ -88,6 +89,24 @@ function RegistrationPage() {
     userAddressError,
   ]);
 
+  const loginHandler = (event) => {
+    event.preventDefault();
+    setUserEmail("");
+    setUserPassword("");
+
+    axios({
+      method: "get",
+      url: "http://localhost:4000/users?userEmail=" + userEmail,
+    }).then(({ data }) => {
+      console.log("data", data);
+      if (data[0].userPassword === userPassword) {
+        alert(`Hello ${data[0].userName}!!!`);
+      } else {
+        alert(`Invalid email or password`);
+      }
+    });
+  };
+
   const registrationHandler = (event) => {
     event.preventDefault();
     const id = nanoid(5);
@@ -95,7 +114,9 @@ function RegistrationPage() {
     setUserSurname("");
     setUserPhoneNumber("");
     setUserEmail("");
+    setUserEmailConfirm("");
     setUserPassword("");
+    setUserPasswordConfirm("");
     setUserAddress("");
     alert("You have a registration");
     console.log("reg");
@@ -199,7 +220,7 @@ function RegistrationPage() {
 
   const userPhoneNumberHandler = (e) => {
     setUserPhoneNumber(e.target.value);
-    const regex = /^\+\d{2}\(\d{3}\)\d{3}-\d{2}-\d{2}$/;
+    const regex = /^(\+38)?0[0-9]{9}$/;
     if (!regex.test(e.target.value)) {
       setUserPhoneNumberError("Please check the phone number");
     } else {
@@ -219,7 +240,6 @@ function RegistrationPage() {
 
   const userEmailConfirmHandler = (e) => {
     setUserEmailConfirm(e.target.value);
-    //const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
     if (e.target.value !== userEmail) {
       setUserEmailConfirmError("Email not confirm");
     } else {
@@ -239,7 +259,6 @@ function RegistrationPage() {
 
   const userPasswordConfirmHandler = (e) => {
     setUserPasswordConfirm(e.target.value);
-    //const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^\w\s]).{6,}/;
     if (e.target.value !== userPassword) {
       setUserPasswordConfirmError("Password not confirm");
     } else {
@@ -264,162 +283,233 @@ function RegistrationPage() {
   };
 
   return (
-    <>
-      <div className="registration">
-        {agree === false ? <LoginPage /> : <div></div>}
+    <div
+      className={active ? "modal-reg active-reg" : "modal-reg"}
+      onClick={() => setActive(false)}
+    >
+      <div className="registration" onClick={(e) => e.stopPropagation()}>
+        {agree === false ? (
+          <div>
+            <h2>Login</h2>
+            <div className="form">
+              <form className="form-items" onSubmit={loginHandler}>
+                {userEmailDirty && userEmailError && (
+                  <p className="form-errors">{userEmailError}</p>
+                )}
+                <div className="form-item">
+                  <label htmlFor="userEmail"> </label>
+                  <input
+                    className="input"
+                    type="email"
+                    name="userEmail"
+                    onChange={(e) => userEmailHandler(e)}
+                    onBlur={(e) => blurHandler(e)}
+                    value={userEmail}
+                    placeholder="Email"
+                  />
+                </div>
+                {userPasswordDirty && userPasswordError && (
+                  <p className="form-errors">{userPasswordError}</p>
+                )}
+                <div className="form-item">
+                  <label htmlFor="userPassword"> </label>
+                  <input
+                    className="input"
+                    type="password"
+                    name="userPassword"
+                    onChange={(e) => userPasswordHandler(e)}
+                    onBlur={(e) => blurHandler(e)}
+                    value={userPassword}
+                    placeholder="Password"
+                  />
+                </div>
+                <button
+                  className="btn-form"
+                  id="btn"
+                  disabled={!valid}
+                  type="submit"
+                  onClick={() => setActive(false)}
+                >
+                  Login
+                </button>
+              </form>
+              <div className="form-checkbox">
+                <label htmlFor="checkbox">
+                  <span>I don't have a registration</span>
+                </label>
+                <input
+                  className="btn-checkbox"
+                  onChange={() => handleChange("agree")}
+                  checked={agree}
+                  id="checkbox"
+                  name="checkbox"
+                  type="checkbox"
+                ></input>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div></div>
+        )}
 
         <div className="form">
-          <div className="form-checkbox">
-            <label htmlFor="checkbox">
-              <span>I don't have a registration</span>
-            </label>
-            <input
-              className="btn-checkbox"
-              onChange={() => handleChange("agree")}
-              checked={agree}
-              id="checkbox"
-              name="checkbox"
-              type="checkbox"
-            ></input>
-          </div>
           {agree === true ? (
-            <form className="form-items" onSubmit={registrationHandler}>
-              {userNameDirty && userNameError && (
-                <p className="form-errors">{userNameError}</p>
-              )}
-              <div className="form-item">
-                <label htmlFor="userName"> </label>
+            <div>
+              <div className="form-checkbox">
+                <label htmlFor="checkbox">
+                  <span>I have a registration</span>
+                </label>
                 <input
-                  className="input"
-                  type="text"
-                  name="userName"
-                  onChange={(e) => userNameHandler(e)}
-                  onBlur={(e) => blurHandler(e)}
-                  value={userName}
-                  placeholder="Name"
-                />
+                  className="btn-checkbox"
+                  onChange={() => handleChange("agree")}
+                  checked={agree}
+                  id="checkbox"
+                  name="checkbox"
+                  type="checkbox"
+                ></input>
               </div>
-              {userSurnameDirty && userSurnameError && (
-                <p className={"form-errors"}>{userSurnameError}</p>
-              )}
-              <div className="form-item">
-                <label htmlFor="userSurname"> </label>
-                <input
-                  className="input"
-                  type="text"
-                  name="userSurname"
-                  onChange={(e) => userSurnameHandler(e)}
-                  onBlur={(e) => blurHandler(e)}
-                  value={userSurname}
-                  placeholder="Surname"
-                />
-              </div>
-              {userPhoneNumberDirty && userPhoneNumberError && (
-                <p className="form-errors">{userPhoneNumberError}</p>
-              )}
-              <div className="form-item">
-                <label htmlFor="userPhoneNumber"> </label>
-                <input
-                  className="input"
-                  type="phone"
-                  name="userPhoneNumber"
-                  onChange={(e) => userPhoneNumberHandler(e)}
-                  onBlur={(e) => blurHandler(e)}
-                  value={userPhoneNumber}
-                  placeholder="Phone number"
-                />
-              </div>
-              {userEmailDirty && userEmailError && (
-                <p className="form-errors">{userEmailError}</p>
-              )}
-              <div className="form-item">
-                <label htmlFor="userEmail"> </label>
-                <input
-                  className={"input"}
-                  type="email"
-                  name="userEmail"
-                  onChange={(e) => userEmailHandler(e)}
-                  onBlur={(e) => blurHandler(e)}
-                  value={userEmail}
-                  placeholder="Email"
-                />
-              </div>
-              {userEmailConfirmDirty && userEmailConfirmError && (
-                <p className="form-errors">{userEmailConfirmError}</p>
-              )}
-              <div className="form-item">
-                <label htmlFor="userEmailConfirm"> </label>
-                <input
-                  className="input"
-                  type="confirmEmail"
-                  name="userEmailConfirm"
-                  onChange={(e) => userEmailConfirmHandler(e)}
-                  onBlur={(e) => blurHandler(e)}
-                  value={userEmailConfirm}
-                  placeholder="Confirm email"
-                />
-              </div>
-              {userPasswordDirty && userPasswordError && (
-                <p className="form-errors">{userPasswordError}</p>
-              )}
-              <div className="form-item">
-                <label htmlFor="userPassword"> </label>
-                <input
-                  className="input"
-                  type="password"
-                  name="userPassword"
-                  onChange={(e) => userPasswordHandler(e)}
-                  onBlur={(e) => blurHandler(e)}
-                  value={userPassword}
-                  placeholder="Password"
-                />
-              </div>
-              {userPasswordConfirmDirty && userPasswordConfirmError && (
-                <p className="form-errors">{userPasswordConfirmError}</p>
-              )}
-              <div className="form-item">
-                <label htmlFor="userPasswordConfirm"> </label>
-                <input
-                  className="input"
-                  type="password"
-                  name="userPasswordConfirm"
-                  onChange={(e) => userPasswordConfirmHandler(e)}
-                  onBlur={(e) => blurHandler(e)}
-                  value={userPasswordConfirm}
-                  placeholder="Confirm password"
-                />
-              </div>
-              {userAddressDirty && userAddressError && (
-                <p className="form-errors">{userAddressError}</p>
-              )}
-              <div className="form-item">
-                <label htmlFor="userAddress"> </label>
-                <input
-                  className="input"
-                  type="text"
-                  name="userAddress"
-                  onChange={(e) => userAddressHandler(e)}
-                  onBlur={(e) => blurHandler(e)}
-                  value={userAddress}
-                  placeholder="Enter your address"
-                />
-              </div>
-              <button
-                className="btn-form"
-                id="btn"
-                size="block"
-                type="submit"
-                disabled={!valid}
-              >
-                Send
-              </button>
-            </form>
+              <form className="form-items" onSubmit={registrationHandler}>
+                {userNameDirty && userNameError && (
+                  <p className="form-errors">{userNameError}</p>
+                )}
+                <div className="form-item">
+                  <label htmlFor="userName"> </label>
+                  <input
+                    className="input"
+                    type="text"
+                    name="userName"
+                    onChange={(e) => userNameHandler(e)}
+                    onBlur={(e) => blurHandler(e)}
+                    value={userName}
+                    placeholder="Name"
+                  />
+                </div>
+                {userSurnameDirty && userSurnameError && (
+                  <p className={"form-errors"}>{userSurnameError}</p>
+                )}
+                <div className="form-item">
+                  <label htmlFor="userSurname"> </label>
+                  <input
+                    className="input"
+                    type="text"
+                    name="userSurname"
+                    onChange={(e) => userSurnameHandler(e)}
+                    onBlur={(e) => blurHandler(e)}
+                    value={userSurname}
+                    placeholder="Surname"
+                  />
+                </div>
+                {userPhoneNumberDirty && userPhoneNumberError && (
+                  <p className="form-errors">{userPhoneNumberError}</p>
+                )}
+                <div className="form-item">
+                  <label htmlFor="userPhoneNumber"> </label>
+                  <input
+                    className="input"
+                    type="phone"
+                    name="userPhoneNumber"
+                    onChange={(e) => userPhoneNumberHandler(e)}
+                    onBlur={(e) => blurHandler(e)}
+                    value={userPhoneNumber}
+                    placeholder="Phone number"
+                  />
+                </div>
+                {userEmailDirty && userEmailError && (
+                  <p className="form-errors">{userEmailError}</p>
+                )}
+                <div className="form-item">
+                  <label htmlFor="userEmail"> </label>
+                  <input
+                    className={"input"}
+                    type="email"
+                    name="userEmail"
+                    onChange={(e) => userEmailHandler(e)}
+                    onBlur={(e) => blurHandler(e)}
+                    value={userEmail}
+                    placeholder="Email"
+                  />
+                </div>
+                {userEmailConfirmDirty && userEmailConfirmError && (
+                  <p className="form-errors">{userEmailConfirmError}</p>
+                )}
+                <div className="form-item">
+                  <label htmlFor="userEmailConfirm"> </label>
+                  <input
+                    className="input"
+                    type="confirmEmail"
+                    name="userEmailConfirm"
+                    onChange={(e) => userEmailConfirmHandler(e)}
+                    onBlur={(e) => blurHandler(e)}
+                    value={userEmailConfirm}
+                    placeholder="Confirm email"
+                  />
+                </div>
+                {userPasswordDirty && userPasswordError && (
+                  <p className="form-errors">{userPasswordError}</p>
+                )}
+                <div className="form-item">
+                  <label htmlFor="userPassword"> </label>
+                  <input
+                    className="input"
+                    type="password"
+                    name="userPassword"
+                    onChange={(e) => userPasswordHandler(e)}
+                    onBlur={(e) => blurHandler(e)}
+                    value={userPassword}
+                    placeholder="Password"
+                  />
+                </div>
+                {userPasswordConfirmDirty && userPasswordConfirmError && (
+                  <p className="form-errors">{userPasswordConfirmError}</p>
+                )}
+                <div className="form-item">
+                  <label htmlFor="userPasswordConfirm"> </label>
+                  <input
+                    className="input"
+                    type="password"
+                    name="userPasswordConfirm"
+                    onChange={(e) => userPasswordConfirmHandler(e)}
+                    onBlur={(e) => blurHandler(e)}
+                    value={userPasswordConfirm}
+                    placeholder="Confirm password"
+                  />
+                </div>
+                {userAddressDirty && userAddressError && (
+                  <p className="form-errors">{userAddressError}</p>
+                )}
+                <div className="form-item">
+                  <label htmlFor="userAddress"> </label>
+                  <input
+                    className="input"
+                    type="text"
+                    name="userAddress"
+                    onChange={(e) => userAddressHandler(e)}
+                    onBlur={(e) => blurHandler(e)}
+                    value={userAddress}
+                    placeholder="Enter your address"
+                  />
+                </div>
+                <button
+                  className="btn-form"
+                  id="btn"
+                  size="block"
+                  type="submit"
+                  disabled={!valid}
+                  onClick={() => setActive(false)}
+                >
+                  Send
+                </button>
+              </form>
+            </div>
           ) : (
             <div></div>
           )}
         </div>
+        <button className="btn-line" onClick={() => setActive(false)}>
+          Cancel
+        </button>
       </div>
-    </>
+    </div>
   );
 }
 

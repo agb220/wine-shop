@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import "./RegistrationPage.css";
 
 function LoginPage() {
@@ -64,7 +65,7 @@ function LoginPage() {
     } else {
       setUserEmailError("");
     }
-    console.log("email", e.target.value);
+    //console.log("email", e.target.value);
   };
 
   const userPasswordHandler = (e) => {
@@ -75,14 +76,14 @@ function LoginPage() {
     } else {
       setUserPasswordError("");
     }
-    console.log("password", e.target.value);
+    //console.log("password", e.target.value);
   };
 
   return (
     <>
       <div>
         <h2>Login</h2>
-        <div className="form">
+        <div className="form" onClick={(e) => e.stopPropagation()}>
           <form className="form-items" onSubmit={loginHandler}>
             {userEmailDirty && userEmailError && (
               <p className="form-errors">{userEmailError}</p>

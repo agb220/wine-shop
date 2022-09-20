@@ -1,13 +1,13 @@
 import React from "react";
 
-import NewProductForm from "./NewProductForm";
+import AddProductForm from "./AddProductForm";
 
 import "./adminpage.css";
 
 function AdminPage() {
   return (
     <div className="add">
-      <NewProductForm />
+      <AddProductForm />
     </div>
   );
 }

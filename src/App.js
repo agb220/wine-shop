@@ -7,8 +7,6 @@ import Header from "./Header/Header";
 import Main from "./Main/Main";
 import CartPage from "./Cart/CartPage";
 import AdminPage from "./Admin/AdminPage";
-import RegistrationPage from "./RegistrationPage/RegistrationPage";
-import LoginPage from "./RegistrationPage/LoginPage";
 import Footer from "./Footer/Footer";
 
 import "./App.css";
@@ -24,12 +22,6 @@ function App() {
           <Route path="/" element={<Main />} exact />
           <Route path="/cartpage" element={<CartPage />} exact />
           <Route path="/adminpage" element={<AdminPage />} exact />
-          <Route
-            path="/registrationpage"
-            element={<RegistrationPage />}
-            exact
-          />
-          <Route path="/loginpage" element={<LoginPage />} exact />
         </Routes>
         <Footer />
       </div>
