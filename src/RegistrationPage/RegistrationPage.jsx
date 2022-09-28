@@ -4,12 +4,14 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 
 //import LoginPage from "./LoginPage";
-import { registrationUser } from "../redux/actions/registration";
+import { loginUser } from "../redux/actions/userAction";
+import { registrationUser } from "../redux/actions/userAction";
 
 import "./RegistrationPage.css";
 
 function RegistrationPage({ active, setActive }) {
   const dispatch = useDispatch();
+  const { idUser } = useState("");
   const [userName, setUserName] = useState("");
   const [userNameError, setUserNameError] = useState(
     "The field must not be empty"
@@ -53,8 +55,8 @@ function RegistrationPage({ active, setActive }) {
   );
   const [userAddressDirty, setUserAddressDirty] = useState(false);
   const [valid, setValid] = useState(false);
+  const [isValid, setIsValid] = useState(false);
   const [agree, setAgree] = useState(false);
-  const [modalActive, setModalActive] = useState(false);
 
   const handleChange = () => {
     if (agree === true) {
@@ -65,14 +67,14 @@ function RegistrationPage({ active, setActive }) {
 
   useEffect(() => {
     if (
-      (userNameError,
-      userSurnameError,
-      userPhoneNumberError,
-      userEmailError,
-      userEmailConfirmError,
-      userPasswordError,
-      userPasswordConfirmError,
-      userAddressError)
+      userNameError ||
+      userSurnameError ||
+      userPhoneNumberError ||
+      userEmailError ||
+      userEmailConfirmError ||
+      userPasswordError ||
+      userPasswordConfirmError ||
+      userAddressError
     ) {
       setValid(false);
     } else {
@@ -89,17 +91,41 @@ function RegistrationPage({ active, setActive }) {
     userAddressError,
   ]);
 
+  useEffect(() => {
+    if (userEmailError || userPasswordError) {
+      setIsValid(false);
+    } else {
+      setIsValid(true);
+    }
+  }, [userEmailError, userPasswordError]);
+
   const loginHandler = (event) => {
     event.preventDefault();
+    const id = nanoid(5);
+    //let idUser = user.items.idUser;
     setUserEmail("");
     setUserPassword("");
 
     axios({
       method: "get",
       url: "http://localhost:4000/users?userEmail=" + userEmail,
+
+      //url: "http://localhost:4000/users?idUser=" + idUser,
     }).then(({ data }) => {
       console.log("data", data);
-      if (data[0].userPassword === userPassword) {
+      console.log("idUser", idUser);
+      if (
+        data[0].userPassword === userPassword
+        // ||
+        // data[0].idUser !== undefined
+      ) {
+        dispatch(
+          loginUser({
+            id,
+            idUser,
+            userEmail,
+          })
+        );
         alert(`Hello ${data[0].userName}!!!`);
       } else {
         alert(`Invalid email or password`);
@@ -110,6 +136,7 @@ function RegistrationPage({ active, setActive }) {
   const registrationHandler = (event) => {
     event.preventDefault();
     const id = nanoid(5);
+    let idUser = id + 1;
     setUserName("");
     setUserSurname("");
     setUserPhoneNumber("");
@@ -126,6 +153,7 @@ function RegistrationPage({ active, setActive }) {
       url: "http://localhost:4000/users",
       data: {
         id,
+        idUser,
         userName,
         userSurname,
         userPhoneNumber,
@@ -137,6 +165,7 @@ function RegistrationPage({ active, setActive }) {
       dispatch(
         registrationUser({
           id,
+          idUser,
           userName,
           userSurname,
           userPhoneNumber,
@@ -285,7 +314,7 @@ function RegistrationPage({ active, setActive }) {
   return (
     <div
       className={active ? "modal-reg active-reg" : "modal-reg"}
-      onClick={() => setActive(false)}
+      // onClick={() => setActive(false)}
     >
       <div className="registration" onClick={(e) => e.stopPropagation()}>
         {agree === false ? (
@@ -326,7 +355,7 @@ function RegistrationPage({ active, setActive }) {
                 <button
                   className="btn-form"
                   id="btn"
-                  disabled={!valid}
+                  disabled={!isValid}
                   type="submit"
                   onClick={() => setActive(false)}
                 >

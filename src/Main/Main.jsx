@@ -7,7 +7,6 @@ import Products from "../Products/Products";
 import AdminBTN from "./AdminBTN";
 
 import { setCategory, setSortBy } from "../redux/actions/filters";
-//import { fetchProducts } from "../redux/actions/products";
 
 import "./main.css";
 
@@ -26,12 +25,7 @@ function Main() {
   const cartItems = useSelector(({ cart }) => cart.items);
   const isLoaded = useSelector(({ products }) => products.isLoaded);
   const { category, sortBy } = useSelector(({ filters }) => filters);
-
-  //console.log("items", items);
-
-  // useEffect(() => {
-  //   dispatch(fetchProducts());
-  // }, [category, sortBy]);
+  //const user = useSelector(({ users }) => user.items.idUser);
 
   const onSelectCategory = React.useCallback((index) => {
     dispatch(setCategory(index));

@@ -13,8 +13,6 @@ const products = (state = initialState, action) => {
       };
 
     case "ADD_NEW_PRODUCT":
-      //console.log("ADD_NEW_PRODUCT_WORK");
-      //console.log("state", state);
       return {
         ...state,
         items: state.items.concat([
@@ -39,21 +37,6 @@ const products = (state = initialState, action) => {
     default:
       return state;
   }
-
-  // if (action.type === "SET_PRODUCTS") {
-  //   return {
-  //     ...state,
-  //     items: action.payload,
-  //     isLoaded: true,
-  //   };
-  // }
-  // if (action.type === "SET_LOADED") {
-  //   return {
-  //     ...state,
-  //     isLoaded: action.payload,
-  //   };
-  // }
-  // return state;
 };
 
 export default products;

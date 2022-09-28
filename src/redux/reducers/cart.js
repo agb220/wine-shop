@@ -6,15 +6,13 @@ const initialState = {
 
 const getTotalPrice = (arr) => arr.reduce((sum, obj) => obj.price + sum, 0);
 
-const cart = (state = initialState, action, id) => {
+const cart = (state = initialState, action) => {
   //console.log("state", state);
   switch (action.type) {
     case "ADD_PRODUCT_CART": {
       const currentProductItems = !state.items[action.payload.id]
         ? [action.payload]
         : [...state.items[action.payload.id].items, action.payload];
-
-      //console.log("currentProductItems", currentProductItems); //1 вид продукту в корзині (масив об'єктів) немає загального totalPrice
 
       const newItems = {
         ...state.items,
@@ -24,20 +22,11 @@ const cart = (state = initialState, action, id) => {
         },
       };
 
-      //console.log("newItems", newItems); // корзина всіх продуктів (об'єкт-масив-обєкти) немає загального totalPrice
-
       const items = Object.values(newItems).map((obj) => obj.items);
-
-      //console.log("items", items); // корзина всіх продуктів (масив-обєктів) немає загального totalPrice
 
       const allProducts = [].concat.apply([], items);
 
-      //console.log("allProducts", allProducts); // корзина всіх продуктів (масив-обєктів) має length
-
       const totalPrice = getTotalPrice(allProducts);
-
-      //console.log(" getTotalPrice(allProducts)", getTotalPrice(allProducts)); //функція яка розраховує загальну суму
-      //console.log("totalPrice", totalPrice); // виводить загальну суму корзини
 
       return {
         ...state,
@@ -55,7 +44,6 @@ const cart = (state = initialState, action, id) => {
           : state.items[action.payload].items.slice(1);
 
       const oneBottlePrice = newItems[0].price;
-      //const oneBottleCount = newItems.length;
 
       const currentTotalPrice =
         oldItems.length === 1
@@ -90,8 +78,6 @@ const cart = (state = initialState, action, id) => {
         ...state.items[action.payload].items,
         state.items[action.payload].items[0],
       ];
-
-      //console.log("newItems", newItems);
 
       const oneBottlePrice = newItems[0].price;
 

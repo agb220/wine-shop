@@ -84,93 +84,46 @@
   ],
   "users": [
     {
-      "id": "ggnSz",
-      "userName": "Anna",
-      "userSurname": "But",
-      "userPhoneNumber": "+380669494588",
-      "userEmail": "test@test.ua",
-      "userPassword": "Asd123/",
+      "id": "paWWx",
+      "idUser": "paWWx1",
+      "userName": "Olga",
+      "userSurname": "Korobko",
+      "userPhoneNumber": "+380669874545",
+      "userEmail": "kor@test.ua",
+      "userPassword": "Kor123/",
+      "userAddress": "Mykolaiv"
+    },
+    {
+      "id": "Nxdto",
+      "idUser": "Nxdto1",
+      "userName": "Alex",
+      "userSurname": "Pavlenko",
+      "userPhoneNumber": "+380975960894",
+      "userEmail": "pav@test.ua",
+      "userPassword": "Pav123/",
       "userAddress": "Kherson"
     },
     {
-      "id": "Frjav",
-      "userName": "Andre",
-      "userSurname": "Corb",
-      "userPhoneNumber": "+380669464855",
-      "userEmail": "andre@test.ua",
-      "userPassword": "Bng345!",
-      "userAddress": "Mariupol"
-    },
-    {
-      "id": "UAvo0",
-      "userName": "Alex",
-      "userSurname": "Pavlenko",
-      "userPhoneNumber": "+380975960894",
-      "userEmail": "pav@test.ua",
-      "userPassword": "Qwe123/",
-      "userAddress": "Kakhovka"
-    },
-    {
-      "id": "qgaGn",
-      "userName": "Alex",
-      "userSurname": "Pavlenko",
-      "userPhoneNumber": "+380975960894",
-      "userEmail": "pav@test.ua",
-      "userPassword": "Qwe123/",
-      "userAddress": "Kakhovka"
-    },
-    {
-      "id": "sLZFB",
+      "id": "_fDf4",
+      "idUser": "_fDf41",
       "userName": "Oleg",
+      "userSurname": "Hop",
+      "userPhoneNumber": "+380669874545",
+      "userEmail": "hop@test.ua",
+      "userPassword": "Hop123/",
+      "userAddress": "Kharkiv"
+    },
+    {
+      "id": "0j0aJ",
+      "idUser": "0j0aJ1",
+      "userName": "Alex",
       "userSurname": "Alekseev",
-      "userPhoneNumber": "+38093445678",
+      "userPhoneNumber": "+380976564747",
       "userEmail": "alekseev@test.ua",
-      "userPassword": "Edc345/",
-      "userAddress": "Kherson"
+      "userPassword": "Alekseev123/",
+      "userAddress": "Mykolaiv"
     }
   ],
-  "cards": [
-    {
-      "id": "gspSX",
-      "number": "4567890123567891",
-      "name": "Anna Bal",
-      "cvc": "577",
-      "expiry": "03/24"
-    },
-    {
-      "id": "ywMFT",
-      "number": "4567890123567892",
-      "name": "Anna Bal",
-      "cvc": "577",
-      "expiry": "03/24"
-    },
-    {
-      "id": "6PqNI",
-      "number": "4567890123567868",
-      "name": "Andre Corb",
-      "cvc": "577",
-      "expiry": "04/25"
-    },
-    {
-      "id": "vUQok",
-      "number": "4567890123567858",
-      "name": "Misha",
-      "cvc": "577",
-      "expiry": "03/24"
-    },
-    {
-      "id": "7ysbl",
-      "number": "4567890123567890",
-      "name": "Nikolas",
-      "cvc": "677",
-      "expiry": "03/25"
-    },
-    {
-      "id": "YMpyd",
-      "number": "4567890123567899",
-      "name": "Jully",
-      "cvc": "377",
-      "expiry": "12/24"
-    }
-  ]
+
+  "orders": [{}]
 }

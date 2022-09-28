@@ -42,13 +42,15 @@ function CreditCardForm({ active, setActive }) {
 
     axios({
       method: "post",
-      url: "http://localhost:4000/cards",
+      url: "http://localhost:4000/orders",
       data: {
         id,
-        number,
-        name,
-        cvc,
-        expiry,
+        card: {
+          number,
+          name,
+          cvc,
+          expiry,
+        },
       },
     }).then(({ data }) => {
       dispatch(
