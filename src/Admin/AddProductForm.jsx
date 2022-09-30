@@ -10,6 +10,7 @@ function AddProductForm() {
   const dispatch = useDispatch();
   const [imageURL, setImageURL] = useState("");
   const [name, setName] = useState("");
+  const [id, setId] = useState("");
   const [kind, setKind] = useState("");
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState(0);
@@ -18,7 +19,9 @@ function AddProductForm() {
   const [imageURLDirty, setImageURLDirty] = useState(false);
   const [imageURLError, setImageURLError] = useState("Only URL-address");
   const [nameDirty, setNameDirty] = useState(false);
+  const [idDirty, setIdDirty] = useState(false);
   const [nameError, setNameError] = useState("Please, enter name");
+  const [idError, setIdError] = useState("Please, enter id product");
   const [brandDirty, setBrandDirty] = useState(false);
   const [brandError, setBrandError] = useState("Please, enter brand");
   const [kindDirty, setKindDirty] = useState(false);
@@ -30,12 +33,13 @@ function AddProductForm() {
 
   useEffect(() => {
     if (
-      (imageURLError,
-      nameError,
-      brandError,
-      kindError,
-      priceError,
-      currencyError)
+      imageURLError ||
+      nameError ||
+      idError ||
+      brandError ||
+      kindError ||
+      priceError ||
+      currencyError
     ) {
       setFormValid(false);
     } else {
@@ -44,6 +48,7 @@ function AddProductForm() {
   }, [
     imageURLError,
     nameError,
+    idError,
     brandError,
     kindError,
     priceError,
@@ -52,9 +57,10 @@ function AddProductForm() {
 
   const formHandler = (event) => {
     event.preventDefault();
-    const id = nanoid(5);
+    //const id = nanoid(5);
     setImageURL("");
     setName("");
+    setId("");
     setKind("");
     setBrand("");
     setPrice(0);
@@ -96,6 +102,10 @@ function AddProductForm() {
 
       case "name":
         setNameDirty(true);
+        break;
+
+      case "idProduct":
+        setIdDirty(true);
         break;
 
       case "brand":
@@ -142,6 +152,22 @@ function AddProductForm() {
       setNameError("Please, enter name");
     } else {
       setNameError("");
+    }
+  };
+
+  const idProductHandler = (e) => {
+    setId(e.target.value);
+    const regex = /\(?\d{3}\)?([-\/\.])\d{3}\1\d{4}/;
+    if (
+      regex.test(
+        String(e.target.value)
+          .replace(/ +/g, " ")
+          .trim()
+      )
+    ) {
+      setIdError("Please, enter name");
+    } else {
+      setIdError("");
     }
   };
 
@@ -218,6 +244,19 @@ function AddProductForm() {
             onChange={(e) => nameHandler(e)}
           />
         </div>
+        {idDirty && idError && <div style={{ color: "red" }}>{idError}</div>}
+        <div className="add-product">
+          <label htmlFor="idProduct"> </label>
+          <input
+            type="text"
+            name="idProduct"
+            id="idProduct"
+            placeholder="idProduct"
+            value={id}
+            onBlur={(e) => blurHandler(e)}
+            onChange={(e) => idProductHandler(e)}
+          />
+        </div>
         {brandDirty && brandError && (
           <div style={{ color: "red" }}>{brandError}</div>
         )}
@@ -279,10 +318,17 @@ function AddProductForm() {
             onChange={(e) => currencyHandler(e)}
           />
         </div>
-        <div className="add-product__btn">
-          <button className="add-btn" type="submit" disabled={!formValid}>
-            Add New Product
-          </button>
+        <div className="btn-block">
+          <div className="add-product__btn">
+            <button className="add-btn" type="submit" disabled={!formValid}>
+              Add New Product
+            </button>
+          </div>
+          <div className="edit-product__btn">
+            <button className="edit-btn" type="submit" disabled={!formValid}>
+              Edit Product
+            </button>
+          </div>
         </div>
       </div>
     </form>

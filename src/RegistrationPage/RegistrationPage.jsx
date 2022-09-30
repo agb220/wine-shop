@@ -12,6 +12,7 @@ import "./RegistrationPage.css";
 function RegistrationPage({ active, setActive }) {
   const dispatch = useDispatch();
   const { idUser } = useState("");
+  const [userRole, setUserRole] = useState("user");
   const [userName, setUserName] = useState("");
   const [userNameError, setUserNameError] = useState(
     "The field must not be empty"
@@ -137,6 +138,7 @@ function RegistrationPage({ active, setActive }) {
     event.preventDefault();
     const id = nanoid(5);
     let idUser = id + 1;
+    setUserRole("user");
     setUserName("");
     setUserSurname("");
     setUserPhoneNumber("");
@@ -154,6 +156,7 @@ function RegistrationPage({ active, setActive }) {
       data: {
         id,
         idUser,
+        userRole,
         userName,
         userSurname,
         userPhoneNumber,
@@ -166,6 +169,7 @@ function RegistrationPage({ active, setActive }) {
         registrationUser({
           id,
           idUser,
+          userRole,
           userName,
           userSurname,
           userPhoneNumber,
