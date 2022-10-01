@@ -102,7 +102,7 @@ function RegistrationPage({ active, setActive }) {
 
   const loginHandler = (event) => {
     event.preventDefault();
-    const id = nanoid(5);
+    //const id = nanoid(5);
     //let idUser = user.items.idUser;
     setUserEmail("");
     setUserPassword("");
@@ -110,24 +110,23 @@ function RegistrationPage({ active, setActive }) {
     axios({
       method: "get",
       url: "http://localhost:4000/users?userEmail=" + userEmail,
-
-      //url: "http://localhost:4000/users?idUser=" + idUser,
     }).then(({ data }) => {
-      console.log("data", data);
-      console.log("idUser", idUser);
+      //console.log("data", data);
+      const user = data[0];
+      //console.log("idUser", idUser);
       if (
-        data[0].userPassword === userPassword
+        user.userPassword === userPassword
         // ||
         // data[0].idUser !== undefined
       ) {
         dispatch(
           loginUser({
-            id,
-            idUser,
-            userEmail,
+            id: user.id,
+            //idUser,
+            userEmail: user.userEmail,
           })
         );
-        alert(`Hello ${data[0].userName}!!!`);
+        alert(`Hello ${user.userName}!!!`);
       } else {
         alert(`Invalid email or password`);
       }
@@ -137,7 +136,7 @@ function RegistrationPage({ active, setActive }) {
   const registrationHandler = (event) => {
     event.preventDefault();
     const id = nanoid(5);
-    let idUser = id + 1;
+    // let idUser = id + 1;
     setUserRole("user");
     setUserName("");
     setUserSurname("");

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 import { addNewProduct } from "../redux/actions/products";
@@ -10,7 +10,7 @@ function AddProductForm() {
   const dispatch = useDispatch();
   const [imageURL, setImageURL] = useState("");
   const [name, setName] = useState("");
-  const [id, setId] = useState("");
+  // const [id, setId] = useState("");
   const [kind, setKind] = useState("");
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState(0);
@@ -19,9 +19,9 @@ function AddProductForm() {
   const [imageURLDirty, setImageURLDirty] = useState(false);
   const [imageURLError, setImageURLError] = useState("Only URL-address");
   const [nameDirty, setNameDirty] = useState(false);
-  const [idDirty, setIdDirty] = useState(false);
+  //const [idDirty, setIdDirty] = useState(false);
   const [nameError, setNameError] = useState("Please, enter name");
-  const [idError, setIdError] = useState("Please, enter id product");
+  //const [idError, setIdError] = useState("Please, enter id product");
   const [brandDirty, setBrandDirty] = useState(false);
   const [brandError, setBrandError] = useState("Please, enter brand");
   const [kindDirty, setKindDirty] = useState(false);
@@ -31,11 +31,13 @@ function AddProductForm() {
   const [currencyDirty, setCurrencyDirty] = useState(false);
   const [currencyError, setCurrencyError] = useState("Please, enter currency");
 
+  const user = useSelector((state) => state.user);
+  console.log("user", user);
+
   useEffect(() => {
     if (
       imageURLError ||
       nameError ||
-      idError ||
       brandError ||
       kindError ||
       priceError ||
@@ -48,7 +50,6 @@ function AddProductForm() {
   }, [
     imageURLError,
     nameError,
-    idError,
     brandError,
     kindError,
     priceError,
@@ -57,10 +58,10 @@ function AddProductForm() {
 
   const formHandler = (event) => {
     event.preventDefault();
-    //const id = nanoid(5);
+    const id = nanoid(5);
     setImageURL("");
     setName("");
-    setId("");
+    // setId("");
     setKind("");
     setBrand("");
     setPrice(0);
@@ -104,9 +105,9 @@ function AddProductForm() {
         setNameDirty(true);
         break;
 
-      case "idProduct":
-        setIdDirty(true);
-        break;
+      // case "idProduct":
+      //   setIdDirty(true);
+      //   break;
 
       case "brand":
         setBrandDirty(true);
@@ -155,21 +156,21 @@ function AddProductForm() {
     }
   };
 
-  const idProductHandler = (e) => {
-    setId(e.target.value);
-    const regex = /\(?\d{3}\)?([-\/\.])\d{3}\1\d{4}/;
-    if (
-      regex.test(
-        String(e.target.value)
-          .replace(/ +/g, " ")
-          .trim()
-      )
-    ) {
-      setIdError("Please, enter name");
-    } else {
-      setIdError("");
-    }
-  };
+  // const idProductHandler = (e) => {
+  //   setId(e.target.value);
+  //   const regex = /\(?\d{3}\)?([-\/\.])\d{3}\1\d{4}/;
+  //   if (
+  //     regex.test(
+  //       String(e.target.value)
+  //         .replace(/ +/g, " ")
+  //         .trim()
+  //     )
+  //   ) {
+  //     setIdError("Please, enter name");
+  //   } else {
+  //     setIdError("");
+  //   }
+  // };
 
   const brandHandler = (e) => {
     setBrand(e.target.value);
@@ -244,7 +245,7 @@ function AddProductForm() {
             onChange={(e) => nameHandler(e)}
           />
         </div>
-        {idDirty && idError && <div style={{ color: "red" }}>{idError}</div>}
+        {/* {idDirty && idError && <div style={{ color: "red" }}>{idError}</div>}
         <div className="add-product">
           <label htmlFor="idProduct"> </label>
           <input
@@ -256,7 +257,7 @@ function AddProductForm() {
             onBlur={(e) => blurHandler(e)}
             onChange={(e) => idProductHandler(e)}
           />
-        </div>
+        </div> */}
         {brandDirty && brandError && (
           <div style={{ color: "red" }}>{brandError}</div>
         )}

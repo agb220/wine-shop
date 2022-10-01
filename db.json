@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "idProduct": 0,
+      "id": 0,
       "imageURL": "https://content.okwine.ua/files/product/2748759520300762848/85bb02c0-72dc-11ec-b401-210d5839b8e7.jpg",
       "name": "Marieta",
       "brand": "Albarino",
@@ -10,7 +10,7 @@
       "currency": "UAH"
     },
     {
-      "idProduct": 1,
+      "id": 1,
       "imageURL": "https://content.okwine.ua/files/product/2454570999539041543/f782ce00-da6c-11eb-a9c0-f574d8c601b9.jpg",
       "name": "Bordeaux Rose",
       "brand": "Mouton Cadet",
@@ -19,7 +19,7 @@
       "currency": "UAH"
     },
     {
-      "idProduct": 2,
+      "id": 2,
       "imageURL": "https://content.okwine.ua/files/product/b755cf7c-4d41-4f00-b138-16b5412845ca.full_vino-gran-reserva-cabernet-sauvignon-mapu-krasnoe-suhoe-075l.jpg",
       "name": "Gran Reserva Cabernet Sauvignon",
       "brand": "Mapu",
@@ -28,7 +28,7 @@
       "currency": "UAH"
     },
     {
-      "idProduct": 3,
+      "id": 3,
       "imageURL": "https://content.okwine.ua/files/product/2317481532782019973/9a0cb020-9f34-11ea-bc1b-737bcf33870e.jpg.jpg",
       "name": "As Cores de Vinho Verde",
       "brand": "Branco",
@@ -37,7 +37,7 @@
       "currency": "UAH"
     },
     {
-      "idProduct": 4,
+      "id": 4,
       "imageURL": "https://content.okwine.ua/files/product/cdcd1798-7404-4214-9c7a-7c13d1fdf9f7.full_vino-rosado-sierra-de-enmedio-rozovoe-suhoe-075l.jpg",
       "name": "Rosado",
       "brand": "Sierra de Enmedio",
@@ -46,7 +46,7 @@
       "currency": "UAH"
     },
     {
-      "idProduct": 5,
+      "id": 5,
       "imageURL": "https://content.okwine.ua/files/product/2303090012603810935/9fed3fd0-8f9b-11ea-9e3f-39578e6be7a0.jpg.jpg",
       "name": "Sauvignon Blanc Blush",
       "kind": "rose",
@@ -55,7 +55,7 @@
       "currency": "UAH"
     },
     {
-      "idProduct": "SwSCo",
+      "id": "SwSCo",
       "imageURL": "https://content.okwine.ua/files/product/2309623600883173056/80761480-96c4-11ea-aec3-37307f74538c.jpg.jpg",
       "name": "Concerto di Fonterutoli",
       "kind": "red",
@@ -64,7 +64,7 @@
       "currency": "UAH"
     },
     {
-      "idProduct": "I8vAz",
+      "id": "I8vAz",
       "imageURL": "https://content.okwine.ua/files/product/2317523386483344911/fd840830-566b-11eb-b3ba-9f54324cf6d1.jpg.jpg",
       "name": "Grande Escolha",
       "kind": "white",
@@ -73,7 +73,7 @@
       "currency": "UAH"
     },
     {
-      "idProduct": "8XOas",
+      "id": "8XOas",
       "imageURL": "https://content.okwine.ua/files/product/a0c209c5-cfe5-485f-ae56-8df144906d4b.%D0%A4%D0%BE%D0%BD-(3)-%D0%92%D1%96%D0%B4%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BE.jpg",
       "name": "Gran Reserva Chardonnay",
       "kind": "white",
@@ -82,7 +82,7 @@
       "currency": "UAH"
     },
     {
-      "idProduct": "tztb7",
+      "id": "tztb7",
       "imageURL": "https://content.okwine.ua/files/product/2304507416680596744/606f3620-9125-11ea-b724-013cea2e4023.jpg.jpg",
       "name": " Tintorera-Syrah-Monastrell",
       "kind": "red",
@@ -157,7 +157,5 @@
       "userAddress": "Kahovka"
     }
   ],
-  "orders": [
-    {}
-  ]
+  "orders": [{}]
 }

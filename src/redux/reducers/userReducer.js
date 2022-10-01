@@ -1,19 +1,17 @@
-const initialState = {
-  items: [],
-};
+const initialState = {};
 
 const user = (state = initialState, action) => {
   switch (action.type) {
     case "LOGIN_USER":
       return {
         ...state,
-        items: action.payload,
+        ...action.payload,
       };
 
     case "REGISTRATION_USER":
       return {
         ...state,
-        items: action.payload,
+        ...action.payload,
       };
 
     default:
