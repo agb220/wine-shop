@@ -10,7 +10,6 @@ function AddProductForm() {
   const dispatch = useDispatch();
   const [imageURL, setImageURL] = useState("");
   const [name, setName] = useState("");
-  // const [id, setId] = useState("");
   const [kind, setKind] = useState("");
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState(0);
@@ -19,9 +18,7 @@ function AddProductForm() {
   const [imageURLDirty, setImageURLDirty] = useState(false);
   const [imageURLError, setImageURLError] = useState("Only URL-address");
   const [nameDirty, setNameDirty] = useState(false);
-  //const [idDirty, setIdDirty] = useState(false);
   const [nameError, setNameError] = useState("Please, enter name");
-  //const [idError, setIdError] = useState("Please, enter id product");
   const [brandDirty, setBrandDirty] = useState(false);
   const [brandError, setBrandError] = useState("Please, enter brand");
   const [kindDirty, setKindDirty] = useState(false);
@@ -61,7 +58,6 @@ function AddProductForm() {
     const id = nanoid(5);
     setImageURL("");
     setName("");
-    // setId("");
     setKind("");
     setBrand("");
     setPrice(0);

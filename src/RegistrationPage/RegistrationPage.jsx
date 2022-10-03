@@ -111,18 +111,11 @@ function RegistrationPage({ active, setActive }) {
       method: "get",
       url: "http://localhost:4000/users?userEmail=" + userEmail,
     }).then(({ data }) => {
-      //console.log("data", data);
       const user = data[0];
-      //console.log("idUser", idUser);
-      if (
-        user.userPassword === userPassword
-        // ||
-        // data[0].idUser !== undefined
-      ) {
+      if (user.userPassword === userPassword) {
         dispatch(
           loginUser({
             id: user.id,
-            //idUser,
             userEmail: user.userEmail,
           })
         );
@@ -136,7 +129,6 @@ function RegistrationPage({ active, setActive }) {
   const registrationHandler = (event) => {
     event.preventDefault();
     const id = nanoid(5);
-    // let idUser = id + 1;
     setUserRole("user");
     setUserName("");
     setUserSurname("");

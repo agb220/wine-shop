@@ -5,12 +5,14 @@ import filtersReducer from "./reducers/filters";
 import productsReducer from "./reducers/products";
 import cartReducer from "./reducers/cart";
 import userReducer from "./reducers/userReducer";
+import payCard from "./reducers/payCard";
 
 const rootReducer = combineReducers({
   filters: filtersReducer,
   products: productsReducer,
   cart: cartReducer,
   user: userReducer,
+  payCard: payCard,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

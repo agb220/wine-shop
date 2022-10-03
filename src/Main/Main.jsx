@@ -25,7 +25,6 @@ function Main() {
   const cartItems = useSelector(({ cart }) => cart.items);
   const isLoaded = useSelector(({ products }) => products.isLoaded);
   const { category, sortBy } = useSelector(({ filters }) => filters);
-  //const user = useSelector(({ users }) => user.items.idUser);
 
   const onSelectCategory = React.useCallback((index) => {
     dispatch(setCategory(index));

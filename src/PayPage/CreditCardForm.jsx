@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { payCard } from "../redux/actions/products";
 import "./paypage.css";
 
 function CreditCardForm({ active, setActive }) {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  const cart = useSelector((state) => state.cart);
   const [number, setNumber] = useState("");
   const [numberError, setNumberError] = useState("The field must not be empty");
   const [numberDirty, setNumberDirty] = useState(false);
@@ -37,14 +39,17 @@ function CreditCardForm({ active, setActive }) {
     setName("");
     setExpiry("");
     setCvc("");
+    setActive(false);
     alert("Your order is paid");
-    console.log("pay");
+    //console.log("pay");
 
     axios({
       method: "post",
       url: "http://localhost:4000/orders",
       data: {
         id,
+        user: user.id,
+        ...cart,
         card: {
           number,
           name,
@@ -56,10 +61,14 @@ function CreditCardForm({ active, setActive }) {
       dispatch(
         payCard({
           id,
-          number,
-          name,
-          cvc,
-          expiry,
+          user: user.id,
+          ...cart,
+          card: {
+            number,
+            name,
+            cvc,
+            expiry,
+          },
         })
       );
     });
