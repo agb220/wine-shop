@@ -11,7 +11,6 @@ import "./RegistrationPage.css";
 
 function RegistrationPage({ active, setActive }) {
   const dispatch = useDispatch();
-  const { idUser } = useState("");
   const [userRole, setUserRole] = useState("user");
   const [userName, setUserName] = useState("");
   const [userNameError, setUserNameError] = useState(
@@ -102,8 +101,6 @@ function RegistrationPage({ active, setActive }) {
 
   const loginHandler = (event) => {
     event.preventDefault();
-    //const id = nanoid(5);
-    //let idUser = user.items.idUser;
     setUserEmail("");
     setUserPassword("");
 
@@ -146,7 +143,6 @@ function RegistrationPage({ active, setActive }) {
       url: "http://localhost:4000/users",
       data: {
         id,
-        idUser,
         userRole,
         userName,
         userSurname,
@@ -159,7 +155,6 @@ function RegistrationPage({ active, setActive }) {
       dispatch(
         registrationUser({
           id,
-          idUser,
           userRole,
           userName,
           userSurname,

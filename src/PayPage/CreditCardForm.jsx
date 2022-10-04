@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { payCard } from "../redux/actions/products";
+import { payCard } from "../redux/actions/cart";
 import "./paypage.css";
 
 function CreditCardForm({ active, setActive }) {
@@ -23,6 +23,7 @@ function CreditCardForm({ active, setActive }) {
   const [cvcError, setCvcError] = useState("The field must not be empty");
   const [cvcDirty, setCvcDirty] = useState(false);
   const [isValid, setIsValid] = useState(false);
+  const [payOrder, setPayOrder] = useState(false);
 
   useEffect(() => {
     if (nameError || numberError || expiryError || cvcError) {
@@ -40,6 +41,7 @@ function CreditCardForm({ active, setActive }) {
     setExpiry("");
     setCvc("");
     setActive(false);
+    setPayOrder(true);
     alert("Your order is paid");
     //console.log("pay");
 
@@ -48,6 +50,7 @@ function CreditCardForm({ active, setActive }) {
       url: "http://localhost:4000/orders",
       data: {
         id,
+        payOrder,
         user: user.id,
         ...cart,
         card: {
@@ -61,6 +64,7 @@ function CreditCardForm({ active, setActive }) {
       dispatch(
         payCard({
           id,
+          payOrder: true,
           user: user.id,
           ...cart,
           card: {
@@ -132,7 +136,7 @@ function CreditCardForm({ active, setActive }) {
     } else {
       setNameError("");
     }
-    console.log("e.target.value", e.target.value);
+    //console.log("e.target.value", e.target.value);
   };
 
   const expiryHandler = (e) => {
@@ -148,6 +152,8 @@ function CreditCardForm({ active, setActive }) {
       setExpiryError("");
     }
   };
+
+  console.log("payOrder", payOrder);
 
   return (
     <div
@@ -227,7 +233,6 @@ function CreditCardForm({ active, setActive }) {
               </div>
             </div>
           </div>
-
           <button
             className="btn-pay"
             size="block"

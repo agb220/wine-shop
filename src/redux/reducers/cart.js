@@ -125,6 +125,13 @@ const cart = (state = initialState, action) => {
         items: {},
       };
 
+    case "RESET_CART":
+      return {
+        totalPrice: 0,
+        totalCount: 0,
+        items: {},
+      };
+
     default:
       return state;
   }

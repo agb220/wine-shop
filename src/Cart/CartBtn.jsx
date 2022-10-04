@@ -10,6 +10,7 @@ function CartBtn() {
     totalPrice: cart.totalPrice,
     totalCount: cart.totalCount,
   }));
+  //const { payOrder } = useSelector(({ payCard }) => payCard);
 
   return (
     <div className="cart-block">

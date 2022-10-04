@@ -8,10 +8,6 @@ const Categories = React.memo(function Categories({
   items,
   onClickCategory,
 }) {
-  //console.log("items", items);
-
-  //const [activeItem, setActiveItem] = useState(null);
-
   return (
     <div className="categories-block">
       <ul className="categories-items">

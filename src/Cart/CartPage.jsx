@@ -9,6 +9,7 @@ import {
   removeCartItem,
   plusCartItem,
   minusCartItem,
+  resetCart,
 } from "../redux/actions/cart";
 
 import cart from "../assign/cart-page/cart.svg";
@@ -19,6 +20,7 @@ import smile from "../assign/cart-page/face.svg";
 function CartPage() {
   const dispatch = useDispatch();
   const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
+  const { payOrder, setPayOrder } = useSelector(({ payCard }) => payCard);
   const [modalActive, setModalActive] = useState(false);
 
   //console.log("items", items);
@@ -44,93 +46,114 @@ function CartPage() {
     dispatch(minusCartItem(id));
   };
 
+  const onResetCart = () => {
+    dispatch(resetCart());
+  };
+
+  console.log("payOrder", payOrder);
   return (
     <div className="content">
       <div className="container-cart _container">
-        {totalCount ? (
-          <div className="container-cart__cart">
-            <div className="cart-block">
-              <div className="cart-content">
-                <div className="cart">
-                  <div className="cart-top">
-                    <h2 className="content-title">
-                      <img className="cart-cart" src={cart} alt="cart" />
-                      Cart
-                    </h2>
-                    <div className="cart-clear">
-                      <img className="clear" src={clear} alt="clear" />
-                      <span className="clear-text" onClick={onClearCart}>
-                        Clear cart
+        {payOrder !== true ? (
+          totalCount ? (
+            <div className="container-cart__cart">
+              <div className="cart-block">
+                <div className="cart-content">
+                  <div className="cart">
+                    <div className="cart-top">
+                      <h2 className="content-title">
+                        <img className="cart-cart" src={cart} alt="cart" />
+                        Cart
+                      </h2>
+                      <div className="cart-clear">
+                        <img className="clear" src={clear} alt="clear" />
+                        <span className="clear-text" onClick={onClearCart}>
+                          Clear cart
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="cart-items">
+                    {addedProducts.map((obj) => (
+                      <CartItem
+                        key={obj.id}
+                        id={obj.id}
+                        imageURL={obj.imageURL}
+                        name={obj.name}
+                        type={obj.kind}
+                        brand={obj.brand}
+                        totalPrice={items[obj.id].totalPrice}
+                        totalCount={items[obj.id].items.length}
+                        onRemove={onRemoveItem}
+                        onPlus={onPlusItem}
+                        onMinus={onMinusItem}
+                      />
+                    ))}
+                  </div>
+                  <div className="cart-bottom">
+                    <div className="cart-bottom-details">
+                      <span>
+                        Total:
+                        <b> {totalCount} </b>
+                      </span>
+                      <span>
+                        Total price:
+                        <b> {totalPrice}</b>
+                        <b> UAH </b>
                       </span>
                     </div>
                   </div>
-                </div>
-                <div className="cart-items">
-                  {addedProducts.map((obj) => (
-                    <CartItem
-                      key={obj.id}
-                      id={obj.id}
-                      imageURL={obj.imageURL}
-                      name={obj.name}
-                      type={obj.kind}
-                      brand={obj.brand}
-                      totalPrice={items[obj.id].totalPrice}
-                      totalCount={items[obj.id].items.length}
-                      onRemove={onRemoveItem}
-                      onPlus={onPlusItem}
-                      onMinus={onMinusItem}
-                    />
-                  ))}
-                </div>
-                <div className="cart-bottom">
-                  <div className="cart-bottom-details">
-                    <span>
-                      Total:
-                      <b> {totalCount} </b>
-                    </span>
-                    <span>
-                      Total price:
-                      <b> {totalPrice}</b>
-                      <b> UAH </b>
-                    </span>
+                  <div className="cart-bottom-btn">
+                    <Link to="/" className="cart-btn__outline">
+                      <img src={arrow} alt="arrow" />
+                      <span>Go back</span>
+                    </Link>
+                    <div className="cart-btn">
+                      <button
+                        className="cart-btn__pay"
+                        onClick={() => setModalActive(true)}
+                      >
+                        Pay Now
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div className="cart-bottom-btn">
-                  <Link to="/" className="cart-btn__outline">
-                    <img src={arrow} alt="arrow" />
-                    <span>Go back</span>
-                  </Link>
-                  <div className="cart-btn">
-                    <button
-                      className="cart-btn__pay"
-                      onClick={() => setModalActive(true)}
-                    >
-                      Pay Now
-                    </button>
-                  </div>
+                <div className="container-cart__delivery">
+                  <CreditCardForm
+                    active={modalActive}
+                    setActive={setModalActive}
+                  />
                 </div>
-              </div>
-              <div className="container-cart__delivery">
-                <CreditCardForm
-                  active={modalActive}
-                  setActive={setModalActive}
-                />
               </div>
             </div>
-          </div>
+          ) : (
+            <>
+              <div className="cart-empty">
+                You have not added any wine bottles to your cart yet
+                <img className="cart-empty__img" src={smile} alt="smile" />
+              </div>
+              <div className="cart-empty-btn">
+                <Link to="/" className="cart-btn__outline">
+                  <img src={arrow} alt="arrow" />
+                  <span>Go back</span>
+                </Link>
+              </div>
+            </>
+          )
         ) : (
-          <>
-            <div className="cart-empty">
-              You have not added any wine bottles to your cart yet
-              <img className="cart-empty__img" src={smile} alt="smile" />
+          <div className="cart-order__pay">
+            <div className="cart-order__content">
+              <h2>Your order has been paid. </h2>
+              <p> Thank you for your order.</p>
+              <p> Our manager will tell you about 5-10 minutes.</p>
             </div>
-            <div className="cart-empty-btn">
-              <Link to="/" className="cart-btn__outline">
+            <Link to="/" className="cart-btn__outline">
+              <div onClick={onResetCart}>
                 <img src={arrow} alt="arrow" />
                 <span>Go back</span>
-              </Link>
-            </div>
-          </>
+              </div>
+            </Link>
+          </div>
         )}
       </div>
     </div>

@@ -24,8 +24,3 @@ export const addNewProduct = (payload) => ({
   type: "ADD_NEW_PRODUCT",
   payload,
 });
-
-export const payCard = (payload) => ({
-  type: "PAY_CARD",
-  payload,
-});

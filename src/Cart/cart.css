@@ -266,3 +266,22 @@
   display: flex;
   margin-bottom: 70px;
 }
+/*--------------------------------PAID ORDER BLOCK----------------------------------------*/
+.cart-order__pay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+  line-height: 200%;
+}
+.cart-order__pay h2 {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 10px;
+}
+.cart-order__pay p {
+  display: block;
+  margin-bottom: 10px;
+}
