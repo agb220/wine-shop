@@ -3,7 +3,8 @@ import { nanoid } from "nanoid";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { payCard } from "../redux/actions/cart";
+import { resetCart } from "../redux/actions/cart";
+import { payCard } from "../redux/actions/payCardAction";
 import "./paypage.css";
 
 function CreditCardForm({ active, setActive }) {
@@ -43,6 +44,7 @@ function CreditCardForm({ active, setActive }) {
     setActive(false);
     setPayOrder(true);
     alert("Your order is paid");
+    //onResetCart();
     //console.log("pay");
 
     axios({
@@ -75,6 +77,7 @@ function CreditCardForm({ active, setActive }) {
           },
         })
       );
+      onResetCart();
     });
   };
 
@@ -151,6 +154,10 @@ function CreditCardForm({ active, setActive }) {
     } else {
       setExpiryError("");
     }
+  };
+
+  const onResetCart = () => {
+    dispatch(resetCart());
   };
 
   console.log("payOrder", payOrder);
@@ -239,6 +246,7 @@ function CreditCardForm({ active, setActive }) {
             id="validateButton"
             type="submit"
             disabled={!isValid}
+            // onClick={() => onResetCart()}
           >
             Pay
           </button>

@@ -1,3 +1,7 @@
+.form {
+  margin: 0px 0px 0px 40px;
+}
+
 .add {
   margin: 10px 100px 20px 100px;
 }
@@ -36,6 +40,7 @@
   margin-top: 25px;
 }
 .edit-product__btn {
+  margin: 10px 0px 20px 0px;
 }
 .edit-btn {
   background: rgb(216, 61, 61);

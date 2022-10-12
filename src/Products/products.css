@@ -5,11 +5,14 @@
 }
 .product {
   text-align: center;
-  width: 225px;
-  padding: 10px 10px;
+  max-width: 235px;
+  margin-bottom: 15px;
+  padding: 5px 5px;
 }
 .product:hover {
-  background: #d6d5d5;
+  border: 0.5px solid #cecece;
+  transform: border ease 1s;
+  box-shadow: 10px 5px 5px #cecece;
 }
 .product:not(:last-child) {
   margin-right: 1%;
@@ -29,21 +32,35 @@
   display: block;
 }
 .product-name {
-  height: 50px;
   margin-bottom: 2px;
   line-height: 150%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product-kind {
   margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product-brand {
   margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product-price {
   margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product-currency {
   margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product-btn {
   margin-bottom: 5px;

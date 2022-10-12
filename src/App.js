@@ -7,6 +7,7 @@ import Header from "./Header/Header";
 import Main from "./Main/Main";
 import CartPage from "./Cart/CartPage";
 import AdminPage from "./Admin/AdminPage";
+import EditProduct from "./Admin/EditProduct";
 import Footer from "./Footer/Footer";
 
 import "./App.css";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Main />} exact />
           <Route path="/cartpage" element={<CartPage />} exact />
           <Route path="/adminpage" element={<AdminPage />} exact />
+          <Route path="product/:id" element={<EditProduct />} exact />
         </Routes>
         <Footer />
       </div>

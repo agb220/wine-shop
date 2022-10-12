@@ -9,8 +9,8 @@ import {
   removeCartItem,
   plusCartItem,
   minusCartItem,
-  resetCart,
 } from "../redux/actions/cart";
+import { resetPayOrder } from "../redux/actions/payCardAction";
 
 import cart from "../assign/cart-page/cart.svg";
 import clear from "../assign/cart-page/clear.svg";
@@ -20,7 +20,7 @@ import smile from "../assign/cart-page/face.svg";
 function CartPage() {
   const dispatch = useDispatch();
   const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
-  const { payOrder, setPayOrder } = useSelector(({ payCard }) => payCard);
+  const { payOrder } = useSelector(({ payCard }) => payCard);
   const [modalActive, setModalActive] = useState(false);
 
   //console.log("items", items);
@@ -42,14 +42,14 @@ function CartPage() {
   const onPlusItem = (id) => {
     dispatch(plusCartItem(id));
   };
+
   const onMinusItem = (id) => {
     dispatch(minusCartItem(id));
   };
 
-  const onResetCart = () => {
-    dispatch(resetCart());
+  const onResetPayOrder = () => {
+    dispatch(resetPayOrder());
   };
-
   console.log("payOrder", payOrder);
   return (
     <div className="content">
@@ -148,7 +148,7 @@ function CartPage() {
               <p> Our manager will tell you about 5-10 minutes.</p>
             </div>
             <Link to="/" className="cart-btn__outline">
-              <div onClick={onResetCart}>
+              <div onClick={onResetPayOrder}>
                 <img src={arrow} alt="arrow" />
                 <span>Go back</span>
               </div>

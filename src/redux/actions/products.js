@@ -24,3 +24,7 @@ export const addNewProduct = (payload) => ({
   type: "ADD_NEW_PRODUCT",
   payload,
 });
+export const editProduct = (payload) => ({
+  type: "EDIT_PRODUCT",
+  payload,
+});

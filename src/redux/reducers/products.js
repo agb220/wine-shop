@@ -28,6 +28,22 @@ const products = (state = initialState, action) => {
         ]),
       };
 
+    case "EDIT_PRODUCT":
+      return {
+        ...state,
+        items: state.items.concat([
+          {
+            id: action.payload.id,
+            imageURL: action.payload.imageURL,
+            name: action.payload.name,
+            kind: action.payload.kind,
+            brand: action.payload.brand,
+            price: action.payload.price,
+            currency: action.payload.currency,
+          },
+        ]),
+      };
+
     case "SET_LOADED":
       return {
         ...state,

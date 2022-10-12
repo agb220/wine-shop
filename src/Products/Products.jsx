@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-import "./products.css";
 import AddProductBtn from "./AddProductBtn";
-
-// import marieta from "../assign/wine/marieta.jpg";
-// import moutoncadet from "../assign/wine/moutoncadet.jpg";
-// import mapu from "../assign/wine/mapu.jpg";
+//import EditProduct from "../Admin/EditProduct";
+import "./products.css";
 
 function Products({
   id,
@@ -19,6 +17,8 @@ function Products({
   onClickAddProduct,
   addedCount,
 }) {
+  // const { id } = useParams;
+  // const navigate = useNavigate();
   //console.log("props", props);
 
   const onAddProduct = () => {
@@ -38,7 +38,9 @@ function Products({
     <>
       <div className="product">
         <div className="product-img">
-          <img className="img" src={imageURL} alt="wine" />
+          <Link to={`/product/${id}`}>
+            <img className="img" src={imageURL} alt="wine" />
+          </Link>
         </div>
         <div className="product-name">{name}</div>
         <div className="product-brand">{brand}</div>
