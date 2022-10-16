@@ -4,9 +4,9 @@
       "id": "0lS5z",
       "imageURL": "https://content.okwine.ua/files/product/2748759520300762848/85bb02c0-72dc-11ec-b401-210d5839b8e7.jpg",
       "name": "Marieta",
-      "brand": "Albarino",
       "kind": "white",
-      "price": 375,
+      "brand": "Albarino",
+      "price": 380,
       "currency": "UAH"
     },
     {
@@ -15,7 +15,7 @@
       "name": "Bordeaux Rose",
       "kind": "rose",
       "brand": "Mouton Cadet",
-      "price": 465,
+      "price": 470,
       "currency": "UAH"
     },
     {
@@ -152,5 +152,34 @@
       "userAddress": "Kahovka"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": "xQiMm",
+      "payOrder": false,
+      "items": {
+        "5XS5z": {
+          "items": [
+            {
+              "id": "5XS5z",
+              "name": "Sauvignon Blanc Blush",
+              "kind": "rose",
+              "imageURL": "https://content.okwine.ua/files/product/2303090012603810935/9fed3fd0-8f9b-11ea-9e3f-39578e6be7a0.jpg.jpg",
+              "brand": "Asymmetric",
+              "price": 375,
+              "currency": "UAH"
+            }
+          ],
+          "totalPrice": 375
+        }
+      },
+      "totalPrice": 375,
+      "totalCount": 1,
+      "card": {
+        "number": "4567890123567891",
+        "name": "KOROBKO OLGA",
+        "cvc": "577",
+        "expiry": "12/24"
+      }
+    }
+  ]
 }

@@ -31,17 +31,12 @@ const products = (state = initialState, action) => {
     case "EDIT_PRODUCT":
       return {
         ...state,
-        items: state.items.concat([
-          {
-            id: action.payload.id,
-            imageURL: action.payload.imageURL,
-            name: action.payload.name,
-            kind: action.payload.kind,
-            brand: action.payload.brand,
-            price: action.payload.price,
-            currency: action.payload.currency,
-          },
-        ]),
+        items: state.items.map((item) => {
+          if (item.id === action.payload.id) {
+            return action.payload;
+          }
+          return item;
+        }),
       };
 
     case "SET_LOADED":

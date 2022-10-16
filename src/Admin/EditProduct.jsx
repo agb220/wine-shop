@@ -93,7 +93,7 @@ function EditProduct() {
 
     axios({
       method: "put",
-      url: "http://localhost:4000/product/" + product.id,
+      url: `http://localhost:4000/products/${product.id}`,
       data: {
         id: product.id,
         imageURL,
