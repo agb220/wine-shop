@@ -17,15 +17,14 @@ const sortItem = [
   { name: "all", type: "without" },
 ];
 
-//console.log("sortItem", sortItem);
-
 function Main() {
   const dispatch = useDispatch();
   const items = useSelector(({ products }) => products.items);
   const cartItems = useSelector(({ cart }) => cart.items);
   const isLoaded = useSelector(({ products }) => products.isLoaded);
   const { category, sortBy } = useSelector(({ filters }) => filters);
-  //const { payOrder } = useSelector(({ payCard }) => payCard);
+  const user = useSelector((state) => state.user);
+  console.log("user", user);
 
   const onSelectCategory = React.useCallback((index) => {
     dispatch(setCategory(index));
@@ -93,8 +92,7 @@ function Main() {
                     .map((_, index) => <Loading key={index} />)}
             </div>
           </div>
-          <AdminBTN />
-          {/* {data[0].userRole === "admin" ? <AdminBTN /> : <div></div>} */}
+          {user.userRole === "admin" ? <AdminBTN /> : <div></div>}
         </div>
       </main>
     </>

@@ -103,6 +103,7 @@ function RegistrationPage({ active, setActive }) {
     event.preventDefault();
     setUserEmail("");
     setUserPassword("");
+    setUserRole("");
 
     axios({
       method: "get",
@@ -114,6 +115,7 @@ function RegistrationPage({ active, setActive }) {
           loginUser({
             id: user.id,
             userEmail: user.userEmail,
+            userRole: user.userRole,
           })
         );
         alert(`Hello ${user.userName}!!!`);

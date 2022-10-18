@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import AddProductBtn from "./AddProductBtn";
 //import EditProduct from "../Admin/EditProduct";
@@ -17,10 +18,7 @@ function Products({
   onClickAddProduct,
   addedCount,
 }) {
-  // const { id } = useParams;
-  // const navigate = useNavigate();
-  //console.log("props", props);
-
+  const user = useSelector((state) => state.user);
   const onAddProduct = () => {
     const obj = {
       id,
@@ -38,9 +36,13 @@ function Products({
     <>
       <div className="product">
         <div className="product-img">
-          <Link to={`/product/${id}`}>
+          {user.userRole === "admin" ? (
+            <Link to={`/product/${id}`}>
+              <img className="img" src={imageURL} alt="wine" />
+            </Link>
+          ) : (
             <img className="img" src={imageURL} alt="wine" />
-          </Link>
+          )}
         </div>
         <div className="product-name">{name}</div>
         <div className="product-brand">{brand}</div>

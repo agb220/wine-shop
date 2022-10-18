@@ -15,15 +15,15 @@
       "name": "Bordeaux Rose",
       "kind": "rose",
       "brand": "Mouton Cadet",
-      "price": 470,
+      "price": 465,
       "currency": "UAH"
     },
     {
       "id": "2pS5z",
       "imageURL": "https://content.okwine.ua/files/product/b755cf7c-4d41-4f00-b138-16b5412845ca.full_vino-gran-reserva-cabernet-sauvignon-mapu-krasnoe-suhoe-075l.jpg",
       "name": "Gran Reserva Cabernet Sauvignon",
-      "brand": "Mapu",
       "kind": "red",
+      "brand": "Mapu",
       "price": 495,
       "currency": "UAH"
     },
@@ -31,9 +31,9 @@
       "id": "3XSyz",
       "imageURL": "https://content.okwine.ua/files/product/2317481532782019973/9a0cb020-9f34-11ea-bc1b-737bcf33870e.jpg.jpg",
       "name": "As Cores de Vinho Verde",
-      "brand": "Branco",
       "kind": "white",
-      "price": 235,
+      "brand": "Branco",
+      "price": 245,
       "currency": "UAH"
     },
     {
@@ -98,6 +98,15 @@
       "brand": "Moillard",
       "price": 249,
       "currency": "UAH"
+    },
+    {
+      "id": "0b1z_",
+      "imageURL": "https://content.okwine.ua/files/product/2a60fa68-c37f-4dae-9c60-90f4aa8d62b8.full_vino-lualma-barahonda-krasnoe-suhoe-075l.jpg",
+      "name": "Lualma",
+      "kind": "red",
+      "brand": "Barahonda",
+      "price": 1260,
+      "currency": "UAH"
     }
   ],
   "users": [
@@ -142,7 +151,7 @@
       "userAddress": "Mykolaiv"
     },
     {
-      "id": "PWQib",
+      "id": "zTFr-",
       "userRole": "user",
       "userName": "Katarina",
       "userSurname": "Kovalenko",
@@ -154,9 +163,38 @@
   ],
   "orders": [
     {
-      "id": "xQiMm",
+      "id": "NGYGy",
       "payOrder": false,
+      "user": "paWWx",
       "items": {
+        "3XSyz": {
+          "items": [
+            {
+              "id": "3XSyz",
+              "name": "As Cores de Vinho Verde",
+              "kind": "white",
+              "imageURL": "https://content.okwine.ua/files/product/2317481532782019973/9a0cb020-9f34-11ea-bc1b-737bcf33870e.jpg.jpg",
+              "brand": "Branco",
+              "price": 245,
+              "currency": "UAH"
+            }
+          ],
+          "totalPrice": 245
+        },
+        "4XS_z": {
+          "items": [
+            {
+              "id": "4XS_z",
+              "name": "Rosado",
+              "kind": "rose",
+              "imageURL": "https://content.okwine.ua/files/product/cdcd1798-7404-4214-9c7a-7c13d1fdf9f7.full_vino-rosado-sierra-de-enmedio-rozovoe-suhoe-075l.jpg",
+              "brand": "Sierra de Enmedio",
+              "price": 185,
+              "currency": "UAH"
+            }
+          ],
+          "totalPrice": 185
+        },
         "5XS5z": {
           "items": [
             {
@@ -172,12 +210,41 @@
           "totalPrice": 375
         }
       },
-      "totalPrice": 375,
-      "totalCount": 1,
+      "totalPrice": 805,
+      "totalCount": 3,
       "card": {
-        "number": "4567890123567891",
+        "number": "4567890123567890",
         "name": "KOROBKO OLGA",
-        "cvc": "577",
+        "cvc": "244",
+        "expiry": "12/24"
+      }
+    },
+    {
+      "id": "9nOdQ",
+      "payOrder": false,
+      "user": "paWWx",
+      "totalPrice": 245,
+      "totalCount": 1,
+      "items": {
+        "3XSyz": {
+          "items": [
+            {
+              "id": "3XSyz",
+              "name": "As Cores de Vinho Verde",
+              "kind": "white",
+              "imageURL": "https://content.okwine.ua/files/product/2317481532782019973/9a0cb020-9f34-11ea-bc1b-737bcf33870e.jpg.jpg",
+              "brand": "Branco",
+              "price": 245,
+              "currency": "UAH"
+            }
+          ],
+          "totalPrice": 245
+        }
+      },
+      "card": {
+        "number": "4567890123567890",
+        "name": "KOROBKO OLGA",
+        "cvc": "244",
         "expiry": "12/24"
       }
     }

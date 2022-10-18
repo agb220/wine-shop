@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import CartBtn from "../Cart/CartBtn";
 import RegistrationPage from "../RegistrationPage/RegistrationPage";
@@ -11,7 +11,6 @@ import "./header.css";
 function Header() {
   const dispatch = useDispatch();
   const [modalActive, setModalActive] = useState(false);
-  const { payOrder } = useSelector(({ payCard }) => payCard);
   const onResetPayOrder = () => {
     dispatch(resetPayOrder());
   };
