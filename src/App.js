@@ -7,7 +7,6 @@ import Header from "./Header/Header";
 import Main from "./Main/Main";
 import CartPage from "./Cart/CartPage";
 import AdminPage from "./Admin/AdminPage";
-//import EditProduct from "./Admin/!!!EditProduct";
 import Footer from "./Footer/Footer";
 
 import "./App.css";

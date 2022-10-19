@@ -3,7 +3,6 @@ import { nanoid } from "nanoid";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 
-//import LoginPage from "./LoginPage";
 import { loginUser } from "../redux/actions/userAction";
 import { registrationUser } from "../redux/actions/userAction";
 
@@ -138,7 +137,7 @@ function RegistrationPage({ active, setActive }) {
     setUserPasswordConfirm("");
     setUserAddress("");
     alert("You have a registration");
-    console.log("reg");
+    //console.log("reg");
 
     axios({
       method: "post",
@@ -154,6 +153,8 @@ function RegistrationPage({ active, setActive }) {
         userAddress,
       },
     }).then(({ data }) => {
+      const user = data[0];
+      // if (user.userEmail !== userEmail) {
       dispatch(
         registrationUser({
           id,
@@ -166,6 +167,9 @@ function RegistrationPage({ active, setActive }) {
           userAddress,
         })
       );
+      // } else {
+      //   alert(" You are already registered");
+      // }
     });
   };
 

@@ -44,8 +44,6 @@ function CreditCardForm({ active, setActive }) {
     setActive(false);
     setPayOrder(true);
     alert("Your order is paid");
-    //onResetCart();
-    //console.log("pay");
 
     axios({
       method: "post",

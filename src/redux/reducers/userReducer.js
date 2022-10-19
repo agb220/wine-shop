@@ -14,6 +14,11 @@ const user = (state = initialState, action) => {
         ...action.payload,
       };
 
+    case "LOGOUT_USER":
+      return {
+        user: {},
+      };
+
     default:
       return state;
   }

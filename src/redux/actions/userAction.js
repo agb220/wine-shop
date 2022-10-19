@@ -7,3 +7,6 @@ export const registrationUser = (payload) => ({
   type: "REGISTRATION_USER",
   payload,
 });
+export const logOutUser = () => ({
+  type: "LOGOUT_USER",
+});

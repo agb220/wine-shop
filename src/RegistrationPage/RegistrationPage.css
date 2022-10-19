@@ -92,3 +92,24 @@
   font-size: 16px;
   margin-left: 200px;
 }
+.btn-logout {
+  margin-right: 10px;
+}
+.logout {
+  border: 1.5px solid rgb(243, 237, 237);
+  background: #c12727;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin-right: 10px;
+
+  min-width: 180.5px;
+}
+.logout p {
+  font-size: 16px;
+}
+.logout:hover {
+  border: 2px solid rgb(184, 172, 172);
+  background: #f42121;
+  color: #fff;
+}
