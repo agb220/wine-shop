@@ -49,11 +49,11 @@ function ProductForm() {
 
   useEffect(() => {
     if (
-      imageURLError &
-      nameError &
-      brandError &
-      kindError &
-      priceError &
+      imageURLError ||
+      nameError ||
+      brandError ||
+      kindError ||
+      priceError ||
       currencyError
     ) {
       setFormValid(false);

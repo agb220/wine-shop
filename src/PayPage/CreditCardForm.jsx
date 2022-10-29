@@ -158,7 +158,7 @@ function CreditCardForm({ active, setActive }) {
     dispatch(resetCart());
   };
 
-  console.log("payOrder", payOrder);
+  //console.log("payOrder", payOrder);
 
   return (
     <div

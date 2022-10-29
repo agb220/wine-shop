@@ -136,41 +136,47 @@ function RegistrationPage({ active, setActive }) {
     setUserPassword("");
     setUserPasswordConfirm("");
     setUserAddress("");
-    alert("You have a registration");
-    //console.log("reg");
 
+    //console.log("reg");
     axios({
-      method: "post",
-      url: "http://localhost:4000/users",
-      data: {
-        id,
-        userRole,
-        userName,
-        userSurname,
-        userPhoneNumber,
-        userEmail,
-        userPassword,
-        userAddress,
-      },
+      method: "get",
+      url: "http://localhost:4000/users?userEmail=" + userEmail,
     }).then(({ data }) => {
       const user = data[0];
-      // if (user.userEmail !== userEmail) {
-      dispatch(
-        registrationUser({
-          id,
-          userRole,
-          userName,
-          userSurname,
-          userPhoneNumber,
-          userEmail,
-          userPassword,
-          userAddress,
-        })
-      );
-      // } else {
-      //   alert(" You are already registered");
-      // }
+      if (user) {
+        alert("A user with this email address already exists");
+      } else {
+        axios({
+          method: "post",
+          url: "http://localhost:4000/users",
+          data: {
+            id,
+            userRole,
+            userName,
+            userSurname,
+            userPhoneNumber,
+            userEmail,
+            userPassword,
+            userAddress,
+          },
+        }).then(({ data }) => {
+          const user = data[0];
+          dispatch(
+            registrationUser({
+              id,
+              userRole,
+              userName,
+              userSurname,
+              userPhoneNumber,
+              userEmail,
+              userPassword,
+              userAddress,
+            })
+          );
+        });
+      }
     });
+    alert("Congratulations on your registration");
   };
 
   const blurHandler = (e) => {

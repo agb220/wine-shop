@@ -175,6 +175,10 @@
   width: 100%;
   height: 100%;
 }
+.cart-btn__outline-img {
+  display: inline-block;
+  margin: 7px 0px 0px 0px;
+}
 .cart-btn__pay {
   color: #fff;
   background: #c12727;

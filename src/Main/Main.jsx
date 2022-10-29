@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 import Categories from "../Categories/Categories";
 import SortPopup from "../Components/SortPopup/SortPopup";
 import Loading from "../Products/Loading";
@@ -24,7 +25,7 @@ function Main() {
   const isLoaded = useSelector(({ products }) => products.isLoaded);
   const { category, sortBy } = useSelector(({ filters }) => filters);
   const user = useSelector((state) => state.user);
-  console.log("user", user);
+  //console.log("user", user);
 
   const onSelectCategory = React.useCallback((index) => {
     dispatch(setCategory(index));
@@ -34,10 +35,21 @@ function Main() {
     dispatch(setSortBy(type));
   });
 
-  const handleAddProductToCart = (obj) => {
-    dispatch({
-      type: "ADD_PRODUCT_CART",
-      payload: obj,
+  const handleAddProductToCart = (obj, id) => {
+    console.log("user", user);
+    axios({
+      method: "get",
+      url: "http://localhost:4000/users?id=" + user.id,
+    }).then(({ data }) => {
+      const user = data[0];
+      if (user.id === undefined) {
+        alert("Please login or register");
+      } else {
+        dispatch({
+          type: "ADD_PRODUCT_CART",
+          payload: obj,
+        });
+      }
     });
   };
 

@@ -12,6 +12,8 @@ import {
 } from "../redux/actions/cart";
 import { resetPayOrder } from "../redux/actions/payCardAction";
 
+import "./cart.css";
+
 import cart from "../assign/cart-page/cart.svg";
 import clear from "../assign/cart-page/clear.svg";
 import arrow from "../assign/cart-page/arrow.svg";
@@ -50,7 +52,7 @@ function CartPage() {
   const onResetPayOrder = () => {
     dispatch(resetPayOrder());
   };
-  console.log("payOrder", payOrder);
+  //console.log("payOrder", payOrder);
   return (
     <div className="content">
       <div className="container-cart _container">
@@ -149,7 +151,11 @@ function CartPage() {
             </div>
             <Link to="/" className="cart-btn__outline">
               <div onClick={onResetPayOrder}>
-                <img src={arrow} alt="arrow" />
+                <img
+                  className="cart-btn__outline-img"
+                  src={arrow}
+                  alt="arrow"
+                />
                 <span>Go back</span>
               </div>
             </Link>
