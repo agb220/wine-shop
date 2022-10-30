@@ -489,6 +489,35 @@
         "cvc": "455",
         "expiry": "01/25"
       }
+    },
+    {
+      "id": "wYv0z",
+      "payOrder": false,
+      "user": "TMs7K",
+      "items": {
+        "4XS_z": {
+          "items": [
+            {
+              "id": "4XS_z",
+              "name": "Rosado",
+              "kind": "rose",
+              "imageURL": "https://content.okwine.ua/files/product/cdcd1798-7404-4214-9c7a-7c13d1fdf9f7.full_vino-rosado-sierra-de-enmedio-rozovoe-suhoe-075l.jpg",
+              "brand": "Sierra de Enmedio",
+              "price": 185,
+              "currency": "UAH"
+            }
+          ],
+          "totalPrice": 185
+        }
+      },
+      "totalPrice": 185,
+      "totalCount": 1,
+      "card": {
+        "number": "4567890123567891",
+        "name": "Kovalenko Katarina",
+        "cvc": "577",
+        "expiry": "01/24"
+      }
     }
   ]
 }

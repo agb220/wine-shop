@@ -42,7 +42,7 @@ function Main() {
       url: "http://localhost:4000/users?id=" + user.id,
     }).then(({ data }) => {
       const user = data[0];
-      if (user.id === undefined) {
+      if (user === undefined || user === null) {
         alert("Please login or register");
       } else {
         dispatch({
