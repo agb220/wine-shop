@@ -110,7 +110,7 @@ function CartPage() {
                       <img src={arrow} alt="arrow" />
                       <span>Go back</span>
                     </Link>
-                    <div className="cart-btn">
+                    <div className="cart-pay">
                       <button
                         className="cart-btn__pay"
                         onClick={() => setModalActive(true)}
@@ -120,7 +120,7 @@ function CartPage() {
                     </div>
                   </div>
                 </div>
-                <div className="container-cart__delivery">
+                <div className="container-cart__order">
                   <CreditCardForm
                     active={modalActive}
                     setActive={setModalActive}

@@ -13,13 +13,15 @@ function CartBtn() {
   //const { payOrder } = useSelector(({ payCard }) => payCard);
 
   return (
-    <div className="cart-block">
+    <div className="cart-block__body">
       <div className="cart-block__btn">
         <Link to="CartPage">
           <button className="cart-btn">
             <div className="cart-btn__price">{totalPrice} UAH</div>
-            <img className="cart-btn__logo" src={cart} alt="cart" />
-            <div className="cart-btn__count">{totalCount}</div>
+            <div className="btn-count__body">
+              <img className="cart-btn__logo" src={cart} alt="cart" />
+              <div className="cart-btn__count">{totalCount}</div>
+            </div>
           </button>
         </Link>
       </div>

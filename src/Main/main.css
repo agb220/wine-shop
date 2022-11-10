@@ -1,11 +1,15 @@
 .content-block {
   height: 100%;
   overflow: hidden;
+  margin: 0px 1% 1% 1%;
 }
-.content {
-  margin: 0px 40px 40px 40px;
+.categories-menu {
+  display: none;
 }
-.main-bottom {
+.content-bottom {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 .admin {
   float: right;
@@ -19,4 +23,25 @@
   background: #fff;
   border: 1px solid rgb(152, 149, 149);
   color: rgb(152, 149, 149);
+}
+
+/*----------------------------------------------MEDIA--------------------------------------------*/
+
+@media all and (min-width: 281px) and (max-width: 540px) {
+  .categories-menu {
+    display: block;
+  }
+  .content {
+    padding: 15px;
+  }
+  .content-block {
+  }
+  .content-bottom {
+    margin: 0 20%;
+  }
+  ._lock {
+    overflow: hidden !important;
+  }
+}
+@media all and (min-width: 541) and (max-width: 1024px) {
 }

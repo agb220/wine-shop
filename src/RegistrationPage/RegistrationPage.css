@@ -12,6 +12,7 @@
   transition: 0.5s;
   opacity: 0;
   pointer-events: none;
+  z-index: 7;
 }
 .active-reg {
   opacity: 1;
@@ -43,9 +44,11 @@
   margin-bottom: 20px;
   font-size: 18px;
   color: #fff;
+  margin-left: 70px;
 }
 .form-checkbox {
   margin-bottom: 10px;
+  margin-left: 40px;
 }
 .form-checkbox span {
   color: #fff;
@@ -66,7 +69,7 @@
 .btn-form {
   border: 1px solid rgb(85, 82, 82);
   background: #fff;
-  padding: 10px 158px;
+  padding: 10px 156px;
   border-radius: 10px;
   color: rgb(48, 41, 41);
   margin-bottom: 30px;
@@ -84,13 +87,20 @@
   margin-bottom: 5px;
 }
 .btn-line {
-  /* margin-top: 20px; */
+  margin-top: 20px;
+  display: block;
   background: none;
   color: rgb(182, 14, 14);
+
+  max-width: 100%;
+  display: flex;
   justify-content: center;
   text-align: center;
+  align-items: center;
+  margin-left: 55%;
+}
+.btn-line span {
   font-size: 16px;
-  margin-left: 240px;
 }
 .btn-logout {
   margin-right: 10px;
@@ -99,11 +109,10 @@
   border: 1.5px solid rgb(243, 237, 237);
   background: #c12727;
   color: #fff;
-  padding: 8px 15px;
+  padding: 19px 5px;
   border-radius: 8px;
   margin-right: 10px;
-
-  min-width: 180.5px;
+  min-width: 100.5px;
 }
 .logout p {
   font-size: 16px;
@@ -112,4 +121,61 @@
   border: 2px solid rgb(184, 172, 172);
   background: #f42121;
   color: #fff;
+}
+
+/*----------------------------------------------MEDIA--------------------------------------------*/
+
+@media all and (min-width: 281px) and (max-width: 540px) {
+  .btn-reg {
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  .modal-reg {
+    width: 100%;
+    height: 100%;
+  }
+  .form {
+    margin: 0;
+  }
+  .registration {
+    margin-left: 0px;
+  }
+  .form-items {
+    margin-left: 10px;
+  }
+  .form-item {
+    max-width: 220px;
+  }
+  .btn-form {
+    padding: 10px 90px;
+  }
+  .btn-line {
+    margin-left: 130px;
+  }
+  .logout {
+    padding: 18px 5px;
+    border-radius: 8px;
+    min-width: 100px;
+  }
+  .logout p {
+    font-size: 14px;
+  }
+}
+
+@media all and (min-width: 541px) and (max-width: 1024px) {
+  .registration {
+    margin-left: 0;
+  }
+  .logout {
+    padding: 18px 5px;
+    border-radius: 8px;
+    min-width: 120px;
+  }
+  .logout p {
+    font-size: 16px;
+  }
+  .form {
+    margin: 0;
+  }
 }

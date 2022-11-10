@@ -20,32 +20,34 @@ function Header() {
   return (
     <div className="header">
       <header className="header-block">
-        <Link to={"/"}>
-          <div className="header-block__logo" onClick={onResetPayOrder}>
-            WINE SHOP
-          </div>
-        </Link>
-        <div className="header-block__info">
-          {user.id === undefined ? (
-            <>
-              <div className="registration-btn">
-                <button
-                  className="btn-reg"
-                  onClick={() => setModalActive(true)}
-                >
-                  Registration / Login
-                </button>
-              </div>
-              <RegistrationPage
-                active={modalActive}
-                setActive={setModalActive}
-              />
-            </>
-          ) : (
-            <LogOut />
-          )}
+        <div className="header-block__body">
+          <Link to={"/"}>
+            <div className="header-block__logo" onClick={onResetPayOrder}>
+              WINE SHOP
+            </div>
+          </Link>
+          <div className="header-block__info">
+            {user.id === undefined ? (
+              <>
+                <div className="registration-btn">
+                  <button
+                    className="btn-reg"
+                    onClick={() => setModalActive(true)}
+                  >
+                    Registration / Login
+                  </button>
+                </div>
+                <RegistrationPage
+                  active={modalActive}
+                  setActive={setModalActive}
+                />
+              </>
+            ) : (
+              <LogOut />
+            )}
 
-          <CartBtn />
+            <CartBtn />
+          </div>
         </div>
       </header>
     </div>

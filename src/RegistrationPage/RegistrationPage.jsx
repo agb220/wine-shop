@@ -537,7 +537,7 @@ function RegistrationPage({ active, setActive }) {
           )}
         </div>
         <button className="btn-line" onClick={() => setActive(false)}>
-          Cancel
+          <span>Cancel</span>
         </button>
       </div>
     </div>

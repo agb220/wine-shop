@@ -1,4 +1,5 @@
 import React from "react";
+//import { useState } from "react";
 import PropTypes from "prop-types";
 
 import "./categories.css";
@@ -7,27 +8,39 @@ const Categories = React.memo(function Categories({
   activeCategory,
   items,
   onClickCategory,
+  active,
+  setActive,
 }) {
   return (
-    <div className="categories-block">
-      <ul className="categories-items">
-        <li
-          className={activeCategory === null ? "_active" : "item"}
-          onClick={() => onClickCategory(null)}
+    <div className="categories-body">
+      <div
+        className={
+          active ? "categories-block _menu-active" : "categories-block"
+        }
+        onClick={() => setActive(false)}
+      >
+        <ul
+          className="categories-items"
+          // onClick={(e) => e.stopPropagation()}
         >
-          All
-        </li>
-        {items &&
-          items.map((name, index) => (
-            <li
-              className={activeCategory === index ? "_active" : "item"}
-              onClick={() => onClickCategory(index)}
-              key={`${name}_${index}`}
-            >
-              {name}
-            </li>
-          ))}
-      </ul>
+          <li
+            className={activeCategory === null ? "_active" : "item"}
+            onClick={() => onClickCategory(null)}
+          >
+            All
+          </li>
+          {items &&
+            items.map((name, index) => (
+              <li
+                className={activeCategory === index ? "_active" : "item"}
+                onClick={() => onClickCategory(index)}
+                key={`${name}_${index}`}
+              >
+                {name}
+              </li>
+            ))}
+        </ul>
+      </div>
     </div>
   );
 });

@@ -1,4 +1,4 @@
-/*Обнуление*/
+/*Reset*/
 * {
   padding: 0;
   margin: 0;
@@ -37,6 +37,7 @@ body {
   font-size: 100%;
   line-height: 125%;
   font-size: 14px;
+  overflow: auto;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -91,7 +92,8 @@ footer {
 /*------------------------*/
 .wrapper {
   min-height: 100%;
-  width: 100%;
+  max-width: 100%;
+  max-width: 1900px;
   overflow: hidden;
   display: flex;
   flex-direction: column;

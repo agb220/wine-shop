@@ -244,14 +244,15 @@ function CreditCardForm({ active, setActive }) {
             id="validateButton"
             type="submit"
             disabled={!isValid}
-            // onClick={() => onResetCart()}
           >
             Pay
           </button>
         </form>
-        <button className="btn-inline" onClick={() => setActive(false)}>
-          Cancel payment
-        </button>
+        <div className="btn-body__inline">
+          <button className="btn-inline" onClick={() => setActive(false)}>
+            Cancel payment
+          </button>
+        </div>
       </div>
     </div>
   );

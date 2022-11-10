@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import Categories from "../Categories/Categories";
@@ -18,13 +19,15 @@ const sortItem = [
   { name: "all", type: "without" },
 ];
 
-function Main() {
+function Main(active) {
   const dispatch = useDispatch();
+  const [activeMenu, setActiveMenu] = useState(false);
   const items = useSelector(({ products }) => products.items);
   const cartItems = useSelector(({ cart }) => cart.items);
   const isLoaded = useSelector(({ products }) => products.isLoaded);
   const { category, sortBy } = useSelector(({ filters }) => filters);
   const user = useSelector((state) => state.user);
+
   //console.log("user", user);
 
   const onSelectCategory = React.useCallback((index) => {
@@ -36,7 +39,7 @@ function Main() {
   });
 
   const handleAddProductToCart = (obj, id) => {
-    console.log("user", user);
+    //console.log("user", user);
     axios({
       method: "get",
       url: "http://localhost:4000/users?id=" + user.id,
@@ -56,19 +59,33 @@ function Main() {
   //console.log("items", items);
   return (
     <>
-      <main className="content-block">
+      <main className={active ? "content-block _lock" : "content-block"}>
         <div className="content">
           <div className="content-top">
+            <div
+              onClick={() => setActiveMenu(!activeMenu)}
+              className={
+                activeMenu ? "categories-menu  _close" : "categories-menu"
+              }
+            >
+              <span></span>
+            </div>
             <Categories
               activeCategory={category}
               onClickCategory={onSelectCategory}
               items={categoryNames}
+              active={activeMenu}
+              setActive={setActiveMenu}
             />
-            <SortPopup
-              activeSortType={sortBy}
-              items={sortItem}
-              onClickSortType={onSelectSortType}
-            />
+            {activeMenu ? (
+              <></>
+            ) : (
+              <SortPopup
+                activeSortType={sortBy}
+                items={sortItem}
+                onClickSortType={onSelectSortType}
+              />
+            )}
           </div>
           <div className="content-bottom">
             <div className="block-products">

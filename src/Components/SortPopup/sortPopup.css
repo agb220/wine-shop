@@ -1,5 +1,8 @@
 .sort {
-  min-width: 200px;
+  max-width: 200px;
+  margin-right: 20px;
+  padding-right: 10px;
+  position: relative;
 }
 
 .sort-block {
@@ -27,7 +30,7 @@
   border-radius: 5px;
   box-shadow: 0px 5px 5px 0px rgb(233, 227, 227);
   margin-top: 10px;
-  margin-left: 70px;
+  margin-left: 50px;
 }
 .popup {
   /* margin-bottom: 10px; */
@@ -47,4 +50,34 @@
 }
 .popup-active:hover {
   color: rgb(224, 49, 49);
+}
+/*----------------------------------------------MEDIA--------------------------------------------*/
+@media all and (min-width: 281px) and (max-width: 540px),
+  (orientation: landscape) {
+  .sort {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .sort-title {
+    margin-right: 2px;
+  }
+  .popup-body {
+    margin-left: 75px;
+    line-height: 130%;
+  }
+  .popup {
+    margin-bottom: 10px;
+  }
+  .popup-active {
+    margin-bottom: 10px;
+  }
+}
+@media all and (min-width: 541) and (max-width: 1024px) {
+  .sort {
+  }
+  .sort-block {
+  }
+
+  .popup-body {
+  }
 }
