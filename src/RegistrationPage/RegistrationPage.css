@@ -125,7 +125,7 @@
 
 /*----------------------------------------------MEDIA--------------------------------------------*/
 
-@media all and (min-width: 281px) and (max-width: 540px) {
+@media all and (min-width: 281px) and (max-width: 539px) {
   .btn-reg {
     padding: 8px 10px;
     border-radius: 8px;
@@ -163,7 +163,7 @@
   }
 }
 
-@media all and (min-width: 541px) and (max-width: 1024px) {
+@media all and (min-width: 540px) and (max-width: 912px) {
   .registration {
     margin-left: 0;
   }

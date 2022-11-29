@@ -27,13 +27,11 @@
 
 /*----------------------------------------------MEDIA--------------------------------------------*/
 
-@media all and (min-width: 281px) and (max-width: 540px) {
+@media all and (min-width: 281px) and (max-width: 539px) {
   .categories-menu {
     display: block;
   }
-  .content {
-    padding: 15px;
-  }
+
   .content-block {
   }
   .content-bottom {
@@ -42,6 +40,4 @@
   ._lock {
     overflow: hidden !important;
   }
-}
-@media all and (min-width: 541) and (max-width: 1024px) {
 }

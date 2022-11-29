@@ -6,23 +6,25 @@
 .header-block {
   min-height: 104px;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .header-block__body {
   display: flex;
   justify-content: space-between;
-  padding-top: 30px;
+  padding: 15px 0px;
+  align-items: center;
+  /* text-align: center; */
 }
 .header-block__logo {
   color: #fff;
   font-weight: 700;
   font-size: 36px;
   line-height: 135%;
-  margin-left: 20px;
   margin-right: 40px;
+  margin-left: 20px;
+  text-transform: uppercase;
 }
 .logo {
-  text-transform: uppercase;
 }
 .header-block__info {
   display: flex;
@@ -30,8 +32,10 @@
   background: #c12727;
   margin-left: -5px;
 }
+@media all and (max-width: 280px) {
+}
 
-@media all and (min-width: 281px) and (max-width: 540px) {
+@media all and (min-width: 281px) and (max-width: 539px) {
   .header {
     z-index: 10;
   }
@@ -41,9 +45,6 @@
     font-weight: 600;
     z-index: 10;
   }
-  .header-block {
-    margin-bottom: 10px;
-  }
 }
-@media all and (min-width: 541) and (max-width: 1024px) {
+@media all and (min-width: 540) and (max-width: 912px) {
 }

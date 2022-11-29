@@ -10,6 +10,7 @@
 
 .categories-items {
   display: flex;
+  margin-right: 10px;
 }
 
 .item {
@@ -47,7 +48,7 @@
   background: #d73737;
 }
 /*----------------------------------------------MEDIA--------------------------------------------*/
-@media all and (min-width: 281px) and (max-width: 540px) {
+@media all and (min-width: 281px) and (max-width: 539px) {
   .categories-body {
   }
 
@@ -133,5 +134,17 @@
     margin-bottom: 20px;
   }
 }
-@media all and (min-width: 541) and (max-width: 1024px) {
+@media all and (min-width: 540px) and (max-width: 912px) {
+  .categories-items {
+    margin-right: 40px;
+  }
+  .item:not(last-child) {
+    margin-right: 10px;
+  }
+  ._active:not(last-child) {
+    margin-right: 10px;
+  }
+}
+@media all and (min-width: 913px) and (max-width: 1024px) {
+  
 }

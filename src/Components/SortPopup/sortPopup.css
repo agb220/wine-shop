@@ -52,7 +52,7 @@
   color: rgb(224, 49, 49);
 }
 /*----------------------------------------------MEDIA--------------------------------------------*/
-@media all and (min-width: 281px) and (max-width: 540px),
+@media all and (min-width: 281px) and (max-width: 539px),
   (orientation: landscape) {
   .sort {
     font-size: 16px;
@@ -72,7 +72,7 @@
     margin-bottom: 10px;
   }
 }
-@media all and (min-width: 541) and (max-width: 1024px) {
+@media all and (min-width: 540) and (max-width: 912px) {
   .sort {
   }
   .sort-block {

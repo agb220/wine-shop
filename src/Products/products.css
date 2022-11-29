@@ -5,10 +5,12 @@
 }
 .product {
   text-align: center;
-  max-width: 220px;
+  max-width: 222px;
   max-height: 100%;
   margin-bottom: 15px;
   padding: 5px 5px;
+  justify-content: center;
+  align-items: center;
 }
 .product:hover {
   border: 0.5px solid #cecece;
@@ -22,46 +24,54 @@
   margin-bottom: 10px;
 }
 .img {
-  display: block;
-  max-width: 210px;
   max-height: 300px;
   text-align: center;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin: -5px;
 }
 .img img {
   display: block;
+  max-width: 200px;
+
+  height: 100%;
 }
 .product-name {
   margin-bottom: 2px;
+  max-width: 100%;
   line-height: 150%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 .product-kind {
   margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 .product-brand {
   margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 .product-price {
   margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 .product-currency {
   margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 .product-btn {
   margin-bottom: 5px;
@@ -102,4 +112,13 @@
   background: #fff;
   color: #da1111;
   border-radius: 50%;
+}
+
+@media all and (min-width: 540px) and (max-width: 1000px) {
+  .block-products {
+    justify-content: space-around;
+  }
+  .product {
+    padding: 5px 2px;
+  }
 }

@@ -196,8 +196,7 @@
   margin-bottom: 5px;
 }
 /*----------------------------------------------MEDIA--------------------------------------------*/
-@media all and (min-width: 281px) and (max-width: 540px),
-  (orientation: landscape) {
+@media all and (min-width: 281px) and (max-width: 540px) {
   .pay-page {
     max-width: 100%;
     padding: 70px 1px 70px 1px;
@@ -311,7 +310,7 @@
     /* margin: 0 0 5px -10px; */
   }
 }
-@media all and (min-width: 541) and (max-width: 1024px) {
+@media all and (min-width: 541) and (max-width: 912px) {
   .btn-pay {
     /* bottom: -90px; */
   }
@@ -322,5 +321,119 @@
     /* margin-left: 310px; */
     align-items: center;
     justify-content: center;
+  }
+}
+@media all and (min-width: 913px) and (max-width: 1280px) {
+  .pay-page {
+    padding: 50px 70px;
+    margin: 100px 10px;
+  }
+  .text-center {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-left: 0;
+  }
+  .card {
+    max-height: 360px;
+  }
+  .card {
+    max-width: 370px;
+    max-height: 220px;
+  }
+  .card-back,
+  .card-front {
+    max-width: 265px;
+    max-height: 210px;
+  }
+  .card-back {
+    margin: 0 22px 0px 0px;
+  }
+  .card-bank {
+    top: 20px;
+    left: 15px;
+    font-size: 18px;
+  }
+  .card-logo {
+    font-size: 18px;
+    bottom: 10px;
+    right: 15px;
+  }
+  .card-name {
+    max-width: 90%;
+    margin: 0 5%;
+    top: 110px;
+    font-size: 14px;
+    padding: 5px;
+  }
+  .errorName {
+    left: 25px;
+    bottom: 83px;
+    font-size: 10px;
+    margin: 0 0 5px -10px;
+  }
+  .card-number {
+    max-width: 90%;
+    margin: 0 5%;
+    padding: 5px;
+    top: 60px;
+    font-size: 14px;
+  }
+  .errorNumber {
+    bottom: 132px;
+    font-size: 10px;
+    margin: 0 0 5px -10px;
+  }
+  .card-expiry {
+    max-width: 60px;
+    padding: 5px;
+    bottom: 15px;
+    left: 5%;
+    font-size: 14px;
+  }
+  .errorExpiry {
+    bottom: 28px;
+    font-size: 10px;
+    margin: 0 0 5px -10px;
+  }
+  .btn-pay {
+    padding: 5px 25px;
+    /* margin-left: 125px; */
+    font-size: 16px;
+    margin-top: 30px;
+    /* bottom: -65px; */
+  }
+  .btn-body__inline {
+    /* margin-left: 28px; */
+    margin-top: 60px;
+  }
+  .btn-inline {
+    font-size: 12px;
+    padding: 10px 30px;
+  }
+
+  .card-wrapper {
+    max-width: 390px;
+    max-height: 210px;
+    margin-bottom: 25px;
+  }
+  .card-back-line {
+    height: 30px;
+    top: 45px;
+  }
+  .card-cvc {
+    right: 20px;
+    bottom: 56px;
+    max-width: 50px;
+    font-size: 16px;
+  }
+  .errorCvc {
+    left: 100px;
+    bottom: 75px;
+    font-size: 10px;
+    max-width: 150px;
+    text-align: end;
+    /* margin: 0 0 5px -10px; */
   }
 }
